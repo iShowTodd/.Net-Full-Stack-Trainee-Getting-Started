@@ -32,6 +32,16 @@ namespace BooleanTypesAndOperators
       /*it sees if the first statement make the whole statement true or false
       if it does it will show the answer without checking the other statement*/
 
+      // true && true    // true
+      // true && false   // false
+      // false && true   // false → second side skipped
+      // false && false  // false → second side skipped
+
+      // true || true    // true → second side skipped
+      // true || false   // true → second side skipped
+      // false || true   // true
+      // false || false  // false
+
       //this will check the first statement and decides the output
       var short_ = true || Check();
 
