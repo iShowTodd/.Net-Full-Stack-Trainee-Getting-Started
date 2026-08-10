@@ -11,6 +11,7 @@ namespace Lesson1_Project
 
             //Auto.Asia.Japan
             //Auto.Europe.Germany
+            //Auto.Asia.SKorea.Kia
 
             //BMW → AS IM USING USING AUTO.EUROPE.GERMANY
         }
