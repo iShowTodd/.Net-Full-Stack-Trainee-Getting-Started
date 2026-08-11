@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConstructorsDemo
+namespace Constructors
 {
   public class Employee
   {

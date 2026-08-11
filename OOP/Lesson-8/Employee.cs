@@ -11,9 +11,9 @@ namespace Methods
     public double Wage;
     public double LoggedHours;
 
-    public double Calculate() => Wage * LoggedHours;
-    public double CalculateTax() => Calculate() * TAX;
-    public double CalculateNet() => Calculate() - CalculateTax();
+    private double Calculate() => Wage * LoggedHours;
+    private double CalculateTax() => Calculate() * TAX;
+    private double CalculateNet() => Calculate() - CalculateTax();
 
     public string PrintSlip()
     {
