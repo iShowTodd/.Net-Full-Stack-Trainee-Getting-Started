@@ -7,44 +7,44 @@ namespace Methods
 
     static void Main(string[] args)
     {
-      // Console.WriteLine("\nFirst Employee");
+      Console.WriteLine("\nFirst Employee");
 
-      // Employee[] emp = new Employee[2];
+      Employee[] emp = new Employee[2];
 
-      // Console.Write("TAX: ");
-      // Employee.TAX = Convert.ToDouble(Console.ReadLine());
+      Console.Write("TAX: ");
+      Employee.TAX = Convert.ToDouble(Console.ReadLine());
 
-      // Employee e1 = new Employee();
-      // Console.Write("First Name: ");
-      // e1.FName = Console.ReadLine();
+      Employee e1 = new Employee();
+      Console.Write("First Name: ");
+      e1.FName = Console.ReadLine();
 
-      // Console.Write("Last Name: ");
-      // e1.LName = Console.ReadLine();
+      Console.Write("Last Name: ");
+      e1.LName = Console.ReadLine();
 
-      // Console.Write("Wage: ");
-      // e1.Wage = Convert.ToDouble(Console.ReadLine());
+      Console.Write("Wage: ");
+      e1.Wage = Convert.ToDouble(Console.ReadLine());
 
-      // Console.Write("LoggedHours: ");
-      // e1.LoggedHours = Convert.ToDouble(Console.ReadLine());
-      // emp[0] = e1;
+      Console.Write("LoggedHours: ");
+      e1.LoggedHours = Convert.ToDouble(Console.ReadLine());
+      emp[0] = e1;
 
-      // //----- Second Employee
+      //----- Second Employee
 
-      // Console.WriteLine("\nSecond Employee");
+      Console.WriteLine("\nSecond Employee");
 
-      // Employee e2 = new Employee();
-      // Console.Write("First Name: ");
-      // e2.FName = Console.ReadLine();
+      Employee e2 = new Employee();
+      Console.Write("First Name: ");
+      e2.FName = Console.ReadLine();
 
-      // Console.Write("Last Name: ");
-      // e2.LName = Console.ReadLine();
+      Console.Write("Last Name: ");
+      e2.LName = Console.ReadLine();
 
-      // Console.Write("Wage: ");
-      // e2.Wage = Convert.ToDouble(Console.ReadLine());
+      Console.Write("Wage: ");
+      e2.Wage = Convert.ToDouble(Console.ReadLine());
 
-      // Console.Write("LoggedHours: ");
-      // e2.LoggedHours = Convert.ToDouble(Console.ReadLine());
-      // emp[1] = e2;
+      Console.Write("LoggedHours: ");
+      e2.LoggedHours = Convert.ToDouble(Console.ReadLine());
+      emp[1] = e2;
 
       //   foreach (Employee e in emp)
       //   {
@@ -66,6 +66,13 @@ namespace Methods
       //  }
 
       // ======= Refactor salary slip application  ======
+
+      foreach (Employee e in emp)
+      {
+        Console.WriteLine(e.PrintSlip());
+      }
+      // ***************************************************************
+      //****************************************************************
 
       Demo d1 = new Demo();
 
