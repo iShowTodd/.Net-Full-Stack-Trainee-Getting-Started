@@ -45,6 +45,15 @@ namespace GenericDelegate
 
 
     }
+
+    // static void PrintNumber<T>(IEnumerable<T> numbers, Predicate<T> filter) // yes i can you it here too
+    // {
+    //   foreach (var n in numbers)
+    //   {
+    //     if (filter(n))
+    //       Console.WriteLine(n);
+    //   }
+    // }
     static void PrintNumber<T>(IEnumerable<T> numbers, Filter<T> filter)
     {
       foreach (var n in numbers)
