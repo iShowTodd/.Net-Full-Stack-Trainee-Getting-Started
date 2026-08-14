@@ -94,19 +94,15 @@ namespace ReflectionAndMetaData
 
             Type type = typeof(BankAccount);
 
-            Console.WriteLine("── Fields ──");
             foreach (var f in type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
                 Console.WriteLine($"  {(f.IsPrivate ? "private" : "public"),-10} {f.FieldType.Name,-15} {f.Name}");
 
-            Console.WriteLine("── Properties ──");
             foreach (var p in type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
                 Console.WriteLine($"  {p.PropertyType.Name,-15} {p.Name,-20} CanRead: {p.CanRead}  CanWrite: {p.CanWrite}");
 
-            Console.WriteLine("── Methods ──");
             foreach (var method in type.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly))
                 Console.WriteLine($"  {(method.IsPrivate ? "private" : "public"),-10} {method.ReturnType.Name,-15} {method.Name}()");
 
-            Console.WriteLine("── Constructors ──");
             foreach (var c in type.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
                 var parameters = c.GetParameters();
@@ -117,19 +113,26 @@ namespace ReflectionAndMetaData
             foreach (var e in type.GetEvents(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
                 Console.WriteLine($"  event {e.EventHandlerType?.Name,-20} {e.Name}");
 
-            // ── Invoke a private method via reflection ────────────────────────────
-            Console.WriteLine("── Invoke private method ──");
+            // Invoking memebers
+
             var account = new BankAccount("123", "Ahmed", 500);
             MethodInfo? m = type.GetMethod("Withdraw", BindingFlags.Instance | BindingFlags.Public);
             m?.Invoke(acc, new object[] { 100m });
             Console.WriteLine(acc);
 
-            // ── Read & write a private field via reflection ───────────────────────
-            Console.WriteLine("── Read/Write private field ──");
             FieldInfo? balanceField = type.GetField("balance", BindingFlags.Instance | BindingFlags.NonPublic);
             Console.WriteLine($"  balance (before) : {balanceField?.GetValue(acc)}");
             balanceField?.SetValue(acc, 9999m);
             Console.WriteLine($"  balance (after)  : {balanceField?.GetValue(acc)}");
+
+            // Reflecting assmebilies .dll type files
+            //var path = "Any Path";
+            //var assembly = Assembly.LoadFile(path);
+            //var types = assembly.GetTypes();
+            //foreach (var t in types)
+            //{
+            //    Console.WriteLine(t);
+            //}
         }
 
         private static void Account_OnNegativeBalance(object? sender, EventArgs e)
