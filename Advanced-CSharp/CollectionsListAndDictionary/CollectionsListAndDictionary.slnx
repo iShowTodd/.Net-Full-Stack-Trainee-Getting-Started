@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="Dictionary/Dictionary.csproj" />
+  <Project Path="Lists/Lists.csproj" />
+</Solution>
