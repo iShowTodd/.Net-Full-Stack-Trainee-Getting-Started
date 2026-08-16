@@ -1,4 +1,4 @@
-﻿namespace Todd.NumberSystem
+﻿namespace Todd.NumberSystem.Model
 {
     public static class NumberSystemExtensions
     {
