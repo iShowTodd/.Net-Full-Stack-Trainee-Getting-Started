@@ -2,6 +2,6 @@
 {
     public abstract class Base
     {
-        public string value { get; protected set; }
+        public string Value { get; protected set; }
     }
 }
