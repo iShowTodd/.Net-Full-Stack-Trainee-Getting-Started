@@ -1,15 +1,16 @@
-﻿namespace FileStream
+﻿namespace FileStreams
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Example10();
+            Console.ReadKey();
         }
 
         private static void Example01()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample.txt";
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
             {
                 Console.WriteLine($"Length: {fs.Length} Byte(s)");
@@ -32,7 +33,7 @@
 
         private static void Example02()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample.txt";
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
             {
                 byte[] data = new byte[fs.Length];
@@ -54,7 +55,7 @@
                     Console.WriteLine(b);
                 }
 
-                var newPath = "C:\\Users\\Youya\\Desktop\\sample1.txt";
+                var newPath = "C:\\Users\\Ahmed\\Desktop\\sample1.txt";
                 using (var fsw = new FileStream(newPath, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
                     fsw.Write(data, 0, data.Length);
@@ -64,7 +65,7 @@
 
         private static void Example03()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample2.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample2.txt";
             using (var fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                 fs.Seek(20, SeekOrigin.Begin);
@@ -79,7 +80,7 @@
 
         private static void Example04()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample3.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample3.txt";
             using (var sw = new StreamWriter(path))
             {
                 sw.WriteLine("This");
@@ -90,7 +91,7 @@
 
         private static void Example05()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample3.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample3.txt";
             using (var sr = new StreamReader(path))
             {
                 while (sr.Peek() > 0)
@@ -102,7 +103,7 @@
 
         private static void Example06()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample3.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample3.txt";
             using (var sr = new StreamReader(path))
             {
                 string line;
@@ -115,7 +116,7 @@
 
         private static void Example07()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample4.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample4.txt";
 
             string[] lines =
             {
@@ -130,7 +131,7 @@
 
         private static void Example08()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample5.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample5.txt";
 
             string text = "C# Is Amazing Language";
 
@@ -139,7 +140,7 @@
 
         private static void Example09()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample5.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample5.txt";
 
             var result = File.ReadAllText(path);
 
@@ -148,7 +149,7 @@
 
         private static void Example10()
         {
-            string path = "C:\\Users\\Youya\\Desktop\\sample4.txt";
+            string path = "C:\\Users\\Ahmed\\Desktop\\sample4.txt";
 
             var lines = File.ReadAllLines(path);
 
@@ -158,5 +159,4 @@
             }
         }
     }
-}
 }
