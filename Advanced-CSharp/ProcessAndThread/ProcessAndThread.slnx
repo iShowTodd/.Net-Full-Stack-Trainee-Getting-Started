@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="../Multithreading/Multithreading.csproj" />
   <Project Path="../Sequancial/Sequancial.csproj" />
   <Project Path="ProcessAndThread.csproj" />
 </Solution>
