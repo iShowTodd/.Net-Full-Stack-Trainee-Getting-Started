@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="Stream IO.csproj" />
+  <Project Path="../DisposableDesignPattern/DisposableDesignPattern.csproj" />
+  <Project Path="../StreamDecorator/StreamDecorator.csproj" />
+  <Project Path="FileStream.csproj" />
 </Solution>
