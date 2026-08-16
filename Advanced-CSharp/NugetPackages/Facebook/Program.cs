@@ -34,6 +34,9 @@ namespace Facebook
         public string Comment { set; get; }
         public DateTime CreatedAt { get; set; }
 
+        // Ive Downloade the Humanizer library from Nuget Manager
+        // to install any package
+        // dotnet add package <Package Name> --verison <the version of the package>
         public override string ToString() => $"{Owner} says: \n" +
                        $"\"{Comment}\"" +
                        $"\n\t\t\t\t {CreatedAt.Humanize()}";
