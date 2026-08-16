@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Sequancial/Sequancial.csproj" />
+  <Project Path="ProcessAndThread.csproj" />
+</Solution>
