@@ -36,6 +36,7 @@
 
         public void Debit(int amount)
         {
+            // Solving the Race Condition Problem
             lock (bitCoinsLock)
             {
                 if (Bitcoins >= amount)

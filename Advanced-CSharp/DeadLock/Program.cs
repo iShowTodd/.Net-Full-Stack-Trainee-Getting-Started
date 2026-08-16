@@ -34,7 +34,7 @@
     {
         public int Id { get; private set; }
 
-        public Wallet(string id, string name, int bitcoins)
+        public Wallet(int id, string name, int bitcoins)
         {
             Name = name;
             Bitcoins = bitcoins;
