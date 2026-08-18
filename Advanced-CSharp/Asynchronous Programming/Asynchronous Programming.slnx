@@ -2,6 +2,7 @@
   <Project Path="AsyncFunctions/AsyncFunctions.csproj" Id="ecfc4818-b737-4324-a4d9-26edd4a8e8a4" />
   <Project Path="CancelationToken/CancelationToken.csproj" Id="a8009c6e-85a4-4102-8b9c-771254dbbd8d" />
   <Project Path="Combinators/Combinators.csproj" Id="91a9e55f-f854-4299-aa36-6f83e5dc3fa3" />
+  <Project Path="Concurrency/Concurrency.csproj" Id="b685e54c-623a-4008-a1e4-cb6a6bf17b78" />
   <Project Path="Exception Propagation/Exception Propagation.csproj" Id="1ad39e1b-45e2-453e-9bc1-2f6b0a2c0eba" />
   <Project Path="LongRunningTask/LongRunningTask.csproj" Id="48a3e928-4ca8-44da-9774-184ffd4085df" />
   <Project Path="ReportProgress/ReportProgress.csproj" Id="e219b5ae-c634-4c89-857d-0c8e0db04a95" />
