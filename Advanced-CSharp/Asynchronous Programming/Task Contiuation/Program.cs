@@ -9,7 +9,7 @@
             Task<int> task = Task.Run(() => CountPrimeNumberInARange(2, 3_000_000));
             Console.WriteLine(task.Result); // Bad : it Blocks the thread
 
-            //Console.WriteLine("using awaiter, onComplete");
+            Console.WriteLine("using awaiter, onComplete");
 
             var awaiter = task.GetAwaiter();
             awaiter.OnCompleted(() =>
