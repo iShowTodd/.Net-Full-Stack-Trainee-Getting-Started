@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="TaskReturnsValue/TaskReturnsValue.csproj" Id="14a34fe0-7f99-4624-bfab-2827516f3c51" />
   <Project Path="ThreadVsTasks/ThreadVsTasks.csproj" />
 </Solution>
