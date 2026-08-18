@@ -5,7 +5,8 @@
         private static void Main(string[] args)
         {
             // How to Run a Long Running Task
-            var task = Task.Factory.StartNew(() => RunLongTask(), TaskCreationOptions.LongRunning);
+            var task = Task.Factory.StartNew(() => RunLongTask(), TaskCreationOptions.LongRunning); // it is not Pooled as
+                                                                                                    // thread pool wants to manage short tasks
 
             Console.ReadKey();
         }
