@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="LongRunningTask/LongRunningTask.csproj" Id="48a3e928-4ca8-44da-9774-184ffd4085df" />
   <Project Path="TaskReturnsValue/TaskReturnsValue.csproj" Id="14a34fe0-7f99-4624-bfab-2827516f3c51" />
   <Project Path="ThreadVsTasks/ThreadVsTasks.csproj" />
 </Solution>
