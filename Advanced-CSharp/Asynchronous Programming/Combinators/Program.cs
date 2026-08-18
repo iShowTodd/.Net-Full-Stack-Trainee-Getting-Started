@@ -13,7 +13,7 @@
             var any = await Task.WhenAny(has1000SubscriberTask, Has4000ViewHoursTask);
             Console.WriteLine(any.Result);
 
-            var all = await Task.WhenAll(has1000SubscriberTask, Has4000ViewHoursTask);
+            var all = await Task.WhenAll(has1000SubscriberTask, Has4000ViewHoursTask); // Better Performance
 
             foreach (var t in all)
             {
