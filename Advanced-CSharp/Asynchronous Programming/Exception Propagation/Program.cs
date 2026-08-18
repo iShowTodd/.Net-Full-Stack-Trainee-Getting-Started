@@ -30,7 +30,6 @@
             catch
             {
                 Console.WriteLine("Exception is thrown");
-
                 throw;
             }
 
