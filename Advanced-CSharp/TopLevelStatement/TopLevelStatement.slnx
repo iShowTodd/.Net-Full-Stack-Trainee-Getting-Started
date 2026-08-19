@@ -1,1 +1,5 @@
-<Solution />
+<Solution>
+  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/BeforeNet6/BeforeNet6.csproj" />
+  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/FromNet6/FromNet6.csproj" />
+  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/MainMethods/MainMethods.csproj" />
+</Solution>
