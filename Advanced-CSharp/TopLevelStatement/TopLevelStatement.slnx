@@ -1,5 +1,10 @@
 <Solution>
-  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/BeforeNet6/BeforeNet6.csproj" />
-  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/FromNet6/FromNet6.csproj" />
-  <Project Path="../../../../../../Desktop/C-Sharp-fundamentals/Advanced-CSharp/TopLevelStatement/MainMethods/MainMethods.csproj" />
+  <Project Path="BeforeNet6/BeforeNet6.csproj" />
+  <Project Path="FromNet6/FromNet6.csproj" />
+  <Project Path="Implicit Using/Implicit Using.csproj" Id="e749cc3d-4bd1-4fa8-a9e3-3497f41d1aab" />
+  <Project Path="MainMethods/MainMethods.csproj" />
+  <Project Path="Namespaces/Namespaces.csproj" Id="a78dc1c9-b8c8-446b-95e3-d8d97bebb668" />
+  <Project Path="OnlyTopLevelStatementFile/OnlyTopLevelStatementFile.csproj" Id="f6872947-23b2-4096-b4e7-0cd7f88bac94" />
+  <Project Path="Rule1/Rule1.csproj" Id="5a9d0cc2-137a-4c09-8a93-5455f9d0c690" />
+  <Project Path="Rule2/Rule2.csproj" Id="a5f5797f-8d88-4676-a537-a967aa47a130" />
 </Solution>
