@@ -11,6 +11,14 @@
             Console.WriteLine($"p2: ({p2.X}, {p2.Y})");
 
             Console.WriteLine($"p1.Equals(p2) = {p1.Equals(p2)}");
+            Console.WriteLine($"Object.ReferenceEquals(p1, p2) =" +
+                $"{Object.ReferenceEquals(p1, p2)}");
+
+            p1 = p2;
+
+            Console.WriteLine($"p1.Equals(p2) = {p1.Equals(p2)}");
+            Console.WriteLine($"Object.ReferenceEquals(p1, p2) =" +
+                $"{Object.ReferenceEquals(p1, p2)}");
 
             Console.ReadKey();
         }
