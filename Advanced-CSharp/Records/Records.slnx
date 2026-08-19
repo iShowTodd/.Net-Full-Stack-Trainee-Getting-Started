@@ -1,3 +1,14 @@
 <Solution>
-  <Project Path="Records.csproj" />
+  <Project Path="../HashCode/HashCode.csproj" />
+  <Project Path="../ImmutableRecordUsingInit/ImmutableRecordUsingInit.csproj" />
+  <Project Path="../OverrideEquality/OverrideEquality.csproj" />
+  <Project Path="../OverrideOperator/OverrideOperator.csproj" />
+  <Project Path="../OverrideToString/OverrideToString.csproj" />
+  <Project Path="../PositionalRecord/PositionalRecord.csproj" />
+  <Project Path="../PropertyInitSetter/PropertyInitSetter.csproj" />
+  <Project Path="../RecordRescue/RecordRescue.csproj" />
+  <Project Path="../RefrenceBasedEquality/RefrenceBasedEquality.csproj" />
+  <Project Path="../StructRecord/StructRecord.csproj" />
+  <Project Path="../WithExpression/WithExpression.csproj" />
+  <Project Path="ValueBasedEquality.csproj" />
 </Solution>
