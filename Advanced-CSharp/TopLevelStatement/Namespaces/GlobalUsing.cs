@@ -1,10 +1,2 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Namespaces
-{
-    internal class GlobalUsing
-    {
-    }
-}
+﻿global using System.Text;
+global using static System.Math;

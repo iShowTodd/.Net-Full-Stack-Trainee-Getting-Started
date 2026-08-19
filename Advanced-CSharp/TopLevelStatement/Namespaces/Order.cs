@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Ahmed.Sales;
 
-namespace Namespaces
+internal class Order
 {
-    internal class Order
+    private void Method()
     {
+        StringBuilder sb;
     }
+}
+
+internal class Order_Detail
+{
 }

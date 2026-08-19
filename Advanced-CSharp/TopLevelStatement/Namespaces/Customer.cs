@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Namespaces
+﻿namespace Ahmed.Sales
 {
     internal class Customer
     {

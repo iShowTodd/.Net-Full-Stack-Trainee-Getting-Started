@@ -1,1 +1,9 @@
-﻿Console.WriteLine("Hello, World!");
+﻿internal class Emp
+{
+}
+
+Console.WriteLine("Hello, World!");
+
+public class Employee
+{
+}
