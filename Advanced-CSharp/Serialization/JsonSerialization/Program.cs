@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using System.Xml;
+﻿using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace CAJsonSerializer
 {
@@ -32,7 +32,7 @@ namespace CAJsonSerializer
         private static string SerializeToJsonStringUsingNewSoftJson(Employee employee)
         {
             var result = "";
-            result = JsonConvert.SerializeObject(employee, Formatting.Indented);
+            result = JsonConvert.SerializeObject(employee, Newtonsoft.Json.Formatting.Indented);
 
             return result;
         }

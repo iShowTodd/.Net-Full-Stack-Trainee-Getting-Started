@@ -3,5 +3,7 @@
     <File Path=".editorconfig" />
   </Folder>
   <Project Path="BinarySerialization/BinarySerialization.csproj" />
+  <Project Path="HTTPClinetJson/HTTPClinetJson.csproj" />
+  <Project Path="JsonSerialization/JsonSerialization.csproj" />
   <Project Path="XMLSerializer/XMLSerializer.csproj" />
 </Solution>
