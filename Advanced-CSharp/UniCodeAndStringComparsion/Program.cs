@@ -1,4 +1,4 @@
-﻿namespace Metigator44.L04
+﻿namespace UnicodeAndStringComparsion
 {
     internal class Program
     {

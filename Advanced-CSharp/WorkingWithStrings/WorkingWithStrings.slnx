@@ -1,3 +1,8 @@
 <Solution>
-  <Project Path="WorkingWithStrings.csproj" />
+  <Project Path="../EncodingAndUniCode/EncodingAndUniCode.csproj" />
+  <Project Path="../Instantiation/Instantiation.csproj" />
+  <Project Path="../InternPool/InternPool.csproj" />
+  <Project Path="../StringMethods/StringMethods.csproj" />
+  <Project Path="../UniCodeAndStringComparsion/UniCodeAndStringComparsion.csproj" />
+  <Project Path="ASCII.csproj" />
 </Solution>
