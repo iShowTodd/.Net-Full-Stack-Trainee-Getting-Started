@@ -27,7 +27,7 @@
         // override object GetHashCode
         // override ==, !=
         // override ToString();
-        // By Default it is not Immutable
+        // By Default it is not Immutable so use → Init keyword
         public Point()
         {
         }
@@ -37,7 +37,7 @@
             Y = y;
         }
 
-        public int X { get; init; }
-        public int Y { get; init; }
+        public int X { get; init; } // add it to make it immutable
+        public int Y { get; init; } // add it to make it immutable
     }
 }

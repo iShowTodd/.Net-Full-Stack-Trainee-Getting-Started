@@ -9,6 +9,7 @@
             Console.WriteLine($"e1.GetHashCode() = {e1.GetHashCode()}");
             Console.WriteLine($"e2.GetHashCode() = {e2.GetHashCode()}");
 
+            // for value types we get the same hash code
             var c1 = new Customer { Id = 100, Name = "Issam" };
             var c2 = new Customer { Id = 100, Name = "Issam" };
             Console.WriteLine($"c1.GetHashCode() = {c1.GetHashCode()}");

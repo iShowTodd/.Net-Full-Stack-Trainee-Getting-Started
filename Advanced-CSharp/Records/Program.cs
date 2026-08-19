@@ -1,4 +1,4 @@
-﻿namespace Records
+﻿namespace ValueBasedEqulaity
 {
     internal class Program
     {
