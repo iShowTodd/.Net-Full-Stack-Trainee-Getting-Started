@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="HowStringBuilderWorks/HowStringBuilderWorks.csproj" />
+  <Project Path="MutableStringBuilder/MutableStringBuilder.csproj" />
+  <Project Path="StringBuilderInstantiation/StringBuilderInstantiation.csproj" />
+  <Project Path="StringBuilderMethods/StringBuilderMethods.csproj" />
+</Solution>
