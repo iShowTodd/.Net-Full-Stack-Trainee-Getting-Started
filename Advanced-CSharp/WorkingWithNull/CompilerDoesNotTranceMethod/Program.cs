@@ -6,7 +6,9 @@ namespace CompilerDoesNotTranceMethod
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // var person = new Person(null, null);
+
+            Console.ReadKey();
         }
     }
 

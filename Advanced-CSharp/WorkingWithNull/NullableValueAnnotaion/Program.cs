@@ -4,7 +4,7 @@
     {
         private static void Main(string[] args)
         {
-            string fname = null!;
+            string fname = null!; // nullable value annotation
             string lname = null!;
 
             var person = new Person(fname, lname);

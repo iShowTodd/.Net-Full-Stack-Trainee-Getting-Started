@@ -1,1 +1,12 @@
-<Solution />
+<Solution>
+  <Project Path="CompilerDoesNotTranceMethod/CompilerDoesNotTranceMethod.csproj" />
+  <Project Path="CompilerStaticAnalysis/CompilerStaticAnalysis.csproj" />
+  <Project Path="CompileVsRunTime/CompileVsRunTime.csproj" />
+  <Project Path="NullableAndGenerics/NullableAndGenerics.csproj" />
+  <Project Path="NullableContext/NullableContext.csproj" />
+  <Project Path="NullableValueAnnotaion/NullableValueAnnotaion.csproj" />
+  <Project Path="NullableValueTypes/NullableValueTypes.csproj" />
+  <Project Path="NullReferenceType/NullReferenceType.csproj" />
+  <Project Path="RefrencingVsDerefrencing/RefrencingVsDerefrencing.csproj" />
+  <Project Path="StructAndArrayNullables/StructAndArrayNullables.csproj" />
+</Solution>
