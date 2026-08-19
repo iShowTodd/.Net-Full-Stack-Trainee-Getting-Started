@@ -6,7 +6,7 @@ namespace MutableStringBuilder
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.ReadKey();
         }
 
         private static string GenerateWithString()

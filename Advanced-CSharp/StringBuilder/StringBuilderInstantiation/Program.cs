@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Metigator45.L03
+namespace StringBuilderInstantiation
 {
     internal class Program
     {
