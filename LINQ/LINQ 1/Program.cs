@@ -159,6 +159,27 @@ namespace LINQ1
       */
       #endregion
 
+      #region Set Operators
+      List<string> list1 = ["TechCorp", "BookHub", "FitLife", "OfficePlus"];
+      List<string> list2 = ["TechCorp", "FitLife", "ChefTools", "ReadMore"];
+
+      // Distinct
+      var distinct = ProductList.GetProducts()
+          .Select(p => p.Supplier)
+          .Distinct();
+
+      // Union
+      var union = list1.Union(list2);
+
+      // Intersect
+      var intersect = list1.Intersect(list2);
+
+      // Except
+      var except = list1.Except(list2);
+
+      // Concat
+      var concat = list1.Concat(list2);
+      #endregion
     }
   }
 }
