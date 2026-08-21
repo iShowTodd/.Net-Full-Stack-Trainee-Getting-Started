@@ -43,7 +43,7 @@ namespace LINQ1
 
       #endregion
 
-
+      #region WhereWithSelect
       var products1 = ProductList.GetProducts().Where(a => a.Stock > 0);
 
       var products2 = ProductList.GetProducts().Where(a => a.Stock > 0).Select(p => p.Name);
@@ -77,6 +77,32 @@ namespace LINQ1
       {
         Console.WriteLine(item);
       }
+      #endregion
+
+      var products6 = ProductList.GetProducts().Where(a => a.Stock > 0).OrderBy(a => a.Price);
+
+      foreach (var item in products6)
+      {
+        Console.WriteLine(item);
+      }
+
+      var products7 = ProductList.GetProducts().Where(a => a.Stock > 0).OrderBy(a => a.Price).ThenBy(a => a.Id).Select(a => new { a.Id, a.Name, a.Price });
+
+      foreach (var item in products7)
+      {
+        Console.WriteLine(item);
+      }
+
+      var products8 = from p in ProductList.GetProducts()
+                      where p.Stock > 0
+                      orderby p.Price descending
+                      select new { p.Id, p.Name, p.Price };
+
+      foreach (var item in products8)
+      {
+        Console.WriteLine(item);
+      }
+
     }
   }
 }
