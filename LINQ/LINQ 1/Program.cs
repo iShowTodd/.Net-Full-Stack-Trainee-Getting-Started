@@ -132,6 +132,22 @@ namespace LINQ1
           .TakeWhile(p => p.Price < 100)   // take while condition is true, stop at first false
       */
       #endregion
+
+      #region Aggregation
+      int size = ProductList.GetProducts().Count();
+
+      /*.Count()
+      .Sum(p => p.Price)
+      .Min(p => p.Price)
+      .Max(p => p.Price)
+      .Average(p => p.Price)*/
+      #endregion
+
+      #region Single Element Operators
+
+
+      #endregion
+
     }
   }
 }
