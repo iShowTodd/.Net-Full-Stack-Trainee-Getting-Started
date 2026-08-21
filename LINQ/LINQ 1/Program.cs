@@ -145,7 +145,18 @@ namespace LINQ1
 
       #region Single Element Operators
 
+      var i1 = ProductList.GetProducts().First(); // can take any predicate as an argument
+      var i2 = ProductList.GetProducts().Last();
+      var i3 = ProductList.GetProducts().FirstOrDefault();
+      var i4 = ProductList.GetProducts().Single((p => p.Rating > 4.5));
 
+      /*
+      .First(p => p.Rating > 4.5)      // throws exception if none found
+      .FirstOrDefault(p => p.Rating > 4.5)  // returns null if none found
+      .Single(p => p.Id == 5)          // throws if 0 or more than 1 match
+      .SingleOrDefault(p => p.Id == 5)
+      .Last(p => p.Stock > 0)
+      */
       #endregion
 
     }
