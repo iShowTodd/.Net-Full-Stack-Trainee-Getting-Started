@@ -116,10 +116,22 @@ namespace LINQ1
 
       #region  IndexedSelect
 
+
+
       var products = ProductList.GetProducts()
       .Select((p, i) => new { Index = i, p.Name, p.Price });
       #endregion
 
+      #region Partitioning
+      var prods3 = ProductList.GetProducts().Take(5); // return first 5 elements 
+      /*
+          .Skip(5)                         // skip first 5
+          .Take(5)                         // take only 5
+          .Skip(5).Take(5)                 // paging — page 2 with page size 5
+          .SkipWhile(p => p.Price < 100)   // skip while condition is true, then take the rest
+          .TakeWhile(p => p.Price < 100)   // take while condition is true, stop at first false
+      */
+      #endregion
     }
   }
 }
