@@ -114,10 +114,12 @@ namespace LINQ1
       }
       #endregion
 
-      #region IndexedSelect
-      var prods2 = ProductList.GetProducts()
-          .Select((p, i) => new { Index = i, p.Name, p.Price });
+      #region  IndexedSelect
+
+      var products = ProductList.GetProducts()
+      .Select((p, i) => new { Index = i, p.Name, p.Price });
       #endregion
+
     }
   }
 }
