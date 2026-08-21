@@ -11,6 +11,7 @@ namespace LINQ1
     {
 
       #region Where And Deferred Exectution
+
       List<int> l1 = new List<int> { 10, 20, 30, 40, 50 };
       var result = Enumerable.Where(l1, (x) => x > 20 && x <= 50);
       //  Where (IEnumerable<T> , Predicate)
@@ -43,8 +44,39 @@ namespace LINQ1
       #endregion
 
 
+      var products1 = ProductList.GetProducts().Where(a => a.Stock > 0);
 
+      var products2 = ProductList.GetProducts().Where(a => a.Stock > 0).Select(p => p.Name);
 
+      var products3 = ProductList.GetProducts().Where(a => a.Stock > 0).Select(p => new { p.Id, p.Name, p.Category });
+
+      var products4 = ProductList.GetProducts()
+          .Where(a => a.Stock > 0)
+          .Select(p => new { data = p.Id + ":" + p.Price.ToString() });
+
+      foreach (var item in products1)
+      {
+        Console.WriteLine(item);
+      }
+
+      foreach (var item in products2)
+      {
+        Console.WriteLine(item);
+      }
+
+      foreach (var item in products3)
+      {
+        Console.WriteLine(item);
+      }
+
+      var products5 = from p in ProductList.GetProducts()
+                      where p.Stock > 0
+                      select new { p.Id, p.Name, p.Price };
+
+      foreach (var item in products5)
+      {
+        Console.WriteLine(item);
+      }
     }
   }
 }
