@@ -180,6 +180,22 @@ namespace LINQ1
       // Concat
       var concat = list1.Concat(list2);
       #endregion
+
+      #region Quantifiers
+      var prods2 = ProductList.GetProducts();
+
+      // Any
+      bool hasOutOfStock = prods2.Any(p => p.Stock == 0);   // true if at least one matches
+      bool hasExpensive = prods2.Any(p => p.Price > 1000);  // true if at least one matches
+
+      // All
+      bool allAvailable = prods2.All(p => p.IsAvailable);   // true if every element matches
+      bool allRatedAbove3 = prods2.All(p => p.Rating > 3);  // true if every element matches
+
+      // Contains
+      Product target = prods2.First(p => p.Id == 5);
+      bool containsProduct = prods2.Contains(target);        // reference/value equality check
+      #endregion
     }
   }
 }
