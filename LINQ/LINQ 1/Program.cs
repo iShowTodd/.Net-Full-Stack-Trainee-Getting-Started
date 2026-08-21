@@ -79,6 +79,7 @@ namespace LINQ1
       }
       #endregion
 
+      #region  OrderBy
       var products6 = ProductList.GetProducts().Where(a => a.Stock > 0).OrderBy(a => a.Price);
 
       foreach (var item in products6)
@@ -102,7 +103,21 @@ namespace LINQ1
       {
         Console.WriteLine(item);
       }
+      #endregion
 
+      # region IndexedWhere (can not use it in query expression) 
+      var prods = ProductList.GetProducts().Where((p, i) => p.Stock > 0 && i > 10);
+
+      foreach (var item in prods)
+      {
+        Console.WriteLine(item);
+      }
+      #endregion
+
+      #region IndexedSelect
+      var prods2 = ProductList.GetProducts()
+          .Select((p, i) => new { Index = i, p.Name, p.Price });
+      #endregion
     }
   }
 }
