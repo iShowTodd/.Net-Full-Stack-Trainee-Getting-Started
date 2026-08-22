@@ -2,9 +2,12 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var _context = new ApplicationDbContext();
+            var emp = new Employee { Name = "Employee1" };
+            _context.Employees.Add(emp);
+            _context.SaveChanges();
         }
     }
 }
