@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="Tuple.csproj" />
+  <Project Path="../ReturnMultipleValues/ReturnMultipleValues.csproj" />
+  <Project Path="../TupleClass/TupleClass.csproj" />
+  <Project Path="../TupleValue/TupleValue.csproj" />
+  <Project Path="../TupleValues/TupleValues.csproj" />
+  <Project Path="ConceptBehindTuple.csproj" />
 </Solution>
