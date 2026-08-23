@@ -30,12 +30,15 @@ namespace EF_Core1
 
             // modelBuilder.Entity<Blog>().Property(b => b.Url).HasMaxLength(200);
 
-            modelBuilder
-                .Entity<Blog>()
-                .Property(b => b.Url)
-                .HasComment("this is a url comment");
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .Property(b => b.Url)
+            //     .HasComment("this is a url comment");
+
+            // modelBuilder.Entity<Book>().HasKey(b => b.BookKey); // set bookkey as PK
         }
 
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
