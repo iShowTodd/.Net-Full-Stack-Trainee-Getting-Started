@@ -3,6 +3,7 @@
 namespace EF_Core1.Models;
 
 // [Table("Posts")]
+//[Table("Posts) , schema = "blogging" ]
 public class Post
 {
     public int Id { get; set; }
