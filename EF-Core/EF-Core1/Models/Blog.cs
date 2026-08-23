@@ -8,4 +8,5 @@ public class Blog
 
     // [Required]
     public string Url { get; set; }
+    public List<Post> Posts { get; set; }
 }
