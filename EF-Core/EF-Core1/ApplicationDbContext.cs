@@ -17,6 +17,7 @@ namespace EF_Core1
             // modelBuilder.Ignore<Post>(); Fluent API way to exclude property from miagration
             // modelBuilder.Entity<Post>().ToTable("posts");
             modelBuilder.Entity<Post>().ToTable("Posts", schema: "blogging");
+            modelBuilder.HasDefaultSchema("blogging");
         }
 
         public DbSet<Blog> Blogs { get; set; }
