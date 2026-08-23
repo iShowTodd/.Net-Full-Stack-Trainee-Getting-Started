@@ -14,6 +14,7 @@ namespace EF_Core1
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
+            // modelBuilder.Ignore<Post>(); Fluent API way to exclude property from miagration
         }
 
         public DbSet<Blog> Blogs { get; set; }
