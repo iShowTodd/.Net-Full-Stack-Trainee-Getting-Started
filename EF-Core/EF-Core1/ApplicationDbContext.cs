@@ -20,6 +20,13 @@ namespace EF_Core1
             modelBuilder.HasDefaultSchema("blogging");
             // modelBuilder.Entity<Blog>().Ignore(b => b.AddedOn);
             // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnName("BlogUrl");
+            // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnType("varchar(200)");
+            // modelBuilder.Entity<Blog>(eb =>
+            // {
+            // A way of changing multiple properties at once
+            //     eb.Property(b => b.Url).HasMaxLength(200);
+            //     eb.Property(b => b.AddedOn).HasColumnType("datetime");
+            // });
         }
 
         public DbSet<Blog> Blogs { get; set; }

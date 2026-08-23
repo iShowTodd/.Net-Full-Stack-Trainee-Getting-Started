@@ -9,7 +9,7 @@ public class Blog
 
     // [Required]
     // [Column("BlogURL")]
-    [Column(TypeName = "varchar(200)")]
+    // [Column(TypeName = "varchar(200)")]
     public string Url { get; set; }
 
     // [NotMapped] → Data annotaiton way to Exclude Entity from model
