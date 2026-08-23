@@ -8,6 +8,7 @@ public class Blog
     public int Id { get; set; }
 
     // [Required]
+    // [Column("BlogURL")]
     public string Url { get; set; }
 
     // [NotMapped] → Data annotaiton way to Exclude Entity from model
