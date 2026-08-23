@@ -19,6 +19,7 @@ namespace EF_Core1
             modelBuilder.Entity<Post>().ToTable("Posts", schema: "blogging");
             modelBuilder.HasDefaultSchema("blogging");
             // modelBuilder.Entity<Blog>().Ignore(b => b.AddedOn);
+            // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnName("BlogUrl");
         }
 
         public DbSet<Blog> Blogs { get; set; }
