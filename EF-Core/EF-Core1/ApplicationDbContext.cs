@@ -1,4 +1,5 @@
-﻿using EF_Core1.Models;
+﻿using EF_Core1.Configruations;
+using EF_Core1.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EF_Core1
@@ -12,7 +13,7 @@ namespace EF_Core1
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Blog>().Property(m => m.Url).IsRequired();
+            new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
         }
 
         public DbSet<Blog> Blogs { get; set; }
