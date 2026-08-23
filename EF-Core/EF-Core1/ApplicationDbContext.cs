@@ -27,6 +27,8 @@ namespace EF_Core1
             //     eb.Property(b => b.Url).HasMaxLength(200);
             //     eb.Property(b => b.AddedOn).HasColumnType("datetime");
             // });
+
+            modelBuilder.Entity<Blog>().Property(b => b.Url).HasMaxLength(200);
         }
 
         public DbSet<Blog> Blogs { get; set; }
