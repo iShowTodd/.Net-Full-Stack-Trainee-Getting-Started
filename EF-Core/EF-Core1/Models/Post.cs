@@ -1,5 +1,8 @@
-﻿namespace EF_Core1.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace EF_Core1.Models;
+
+[Table("Posts")]
 public class Post
 {
     public int Id { get; set; }
