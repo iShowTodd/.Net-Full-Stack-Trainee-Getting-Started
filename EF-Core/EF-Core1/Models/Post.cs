@@ -2,7 +2,7 @@
 
 namespace EF_Core1.Models;
 
-[Table("Posts")]
+// [Table("Posts")]
 public class Post
 {
     public int Id { get; set; }
