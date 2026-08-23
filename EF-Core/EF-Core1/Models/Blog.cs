@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace EF_Core1.Models;
 
@@ -11,6 +12,7 @@ public class Blog
     // [Column("BlogURL")]
     // [Column(TypeName = "varchar(200)")]
     // [MaxLength(200)]
+    // [Comment("this comment is about URL")]
     public string Url { get; set; }
 
     // [NotMapped] → Data annotaiton way to Exclude Entity from model
