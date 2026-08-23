@@ -35,7 +35,8 @@ namespace EF_Core1
             //     .Property(b => b.Url)
             //     .HasComment("this is a url comment");
 
-            modelBuilder.Entity<Book>().HasKey(b => b.BookKey).HasName("BookId"); // set bookkey as PK
+            // modelBuilder.Entity<Book>().HasKey(b => b.BookKey).HasName("BookId"); // set bookkey as PK
+            modelBuilder.Entity<Book>().HasKey(b => new { b.Title, b.Author }); // composite PK
         }
 
         public DbSet<Blog> Blogs { get; set; }
