@@ -11,66 +11,29 @@ namespace EF_Core1.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Books",
-                schema: "blogging");
+            migrationBuilder.DropTable(name: "Books", schema: "blogging");
 
-            migrationBuilder.DropTable(
-                name: "Posts",
-                schema: "blogging");
+            migrationBuilder.DropTable(name: "Posts", schema: "blogging");
 
-            migrationBuilder.DropColumn(
-                name: "AddedOn",
-                schema: "blogging",
-                table: "Blogs");
+            migrationBuilder.DropColumn(name: "AddedOn", schema: "blogging", table: "Blogs");
 
-            migrationBuilder.DropColumn(
-                name: "Rating",
-                schema: "blogging",
-                table: "Blogs");
-
-            migrationBuilder.AlterColumn<byte>(
-                name: "Id",
-                schema: "blogging",
-                table: "Categories",
-                type: "tinyint",
-                nullable: false,
-                oldClrType: typeof(byte),
-                oldType: "tinyint")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Url",
-                schema: "blogging",
-                table: "Blogs",
-                type: "nvarchar(200)",
-                maxLength: 200,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "DisplayName",
-                schema: "blogging",
-                table: "Authors",
-                type: "nvarchar(50)",
-                maxLength: 50,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(50)",
-                oldMaxLength: 50,
-                oldComputedColumnSql: "[LastName] + ', ' + [FirstName]");
+            migrationBuilder.DropColumn(name: "Rating", schema: "blogging", table: "Blogs");
 
             migrationBuilder.CreateTable(
                 name: "BlogImages",
                 schema: "blogging",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table
+                        .Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Caption = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    BlogForeignKey = table.Column<int>(type: "int", nullable: false)
+                    Caption = table.Column<string>(
+                        type: "nvarchar(250)",
+                        maxLength: 250,
+                        nullable: false
+                    ),
+                    BlogForeignKey = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -81,43 +44,24 @@ namespace EF_Core1.Migrations
                         principalSchema: "blogging",
                         principalTable: "Blogs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+                        onDelete: ReferentialAction.Cascade
+                    );
+                }
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_BlogImages_BlogForeignKey",
                 schema: "blogging",
                 table: "BlogImages",
                 column: "BlogForeignKey",
-                unique: true);
+                unique: true
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "BlogImages",
-                schema: "blogging");
-
-            migrationBuilder.AlterColumn<byte>(
-                name: "Id",
-                schema: "blogging",
-                table: "Categories",
-                type: "tinyint",
-                nullable: false,
-                oldClrType: typeof(byte),
-                oldType: "tinyint")
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Url",
-                schema: "blogging",
-                table: "Blogs",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(200)",
-                oldMaxLength: 200);
+            migrationBuilder.DropTable(name: "BlogImages", schema: "blogging");
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "AddedOn",
@@ -125,7 +69,8 @@ namespace EF_Core1.Migrations
                 table: "Blogs",
                 type: "datetime2",
                 nullable: false,
-                defaultValueSql: "GetDate()");
+                defaultValueSql: "GetDate()"
+            );
 
             migrationBuilder.AddColumn<int>(
                 name: "Rating",
@@ -133,45 +78,37 @@ namespace EF_Core1.Migrations
                 table: "Blogs",
                 type: "int",
                 nullable: false,
-                defaultValue: 2);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "DisplayName",
-                schema: "blogging",
-                table: "Authors",
-                type: "nvarchar(50)",
-                maxLength: 50,
-                nullable: false,
-                computedColumnSql: "[LastName] + ', ' + [FirstName]",
-                oldClrType: typeof(string),
-                oldType: "nvarchar(50)",
-                oldMaxLength: 50);
+                defaultValue: 2
+            );
 
             migrationBuilder.CreateTable(
                 name: "Books",
                 schema: "blogging",
                 columns: table => new
                 {
-                    BookKey = table.Column<int>(type: "int", nullable: false)
+                    BookKey = table
+                        .Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("BookId", x => x.BookKey);
-                });
+                }
+            );
 
             migrationBuilder.CreateTable(
                 name: "Posts",
                 schema: "blogging",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table
+                        .Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BlogId = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -182,14 +119,17 @@ namespace EF_Core1.Migrations
                         principalSchema: "blogging",
                         principalTable: "Blogs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+                        onDelete: ReferentialAction.Cascade
+                    );
+                }
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_BlogId",
                 schema: "blogging",
                 table: "Posts",
-                column: "BlogId");
+                column: "BlogId"
+            );
         }
     }
 }

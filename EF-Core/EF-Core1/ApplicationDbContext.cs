@@ -56,15 +56,23 @@ namespace EF_Core1
             //     .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
 
             // One to Many Relationship
-            modelBuilder
-                .Entity<Blog>()
-                .HasMany<Post>(b => b.Posts)
-                .WithOne(p => p.Blog)
-                .HasForeignKey(p => p.BlogId);
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .HasMany<Post>(b => b.Posts)
+            //     .WithOne(p => p.Blog)
+            //     .HasForeignKey(p => p.BlogId);
             // .HasConstrainName("FK_New_Name") → to change the FK name
+
+            modelBuilder
+                .Entity<Post>()
+                .HasMany<Tag>(p => p.Tags)
+                .WithMany(t => t.Posts)
+                .UsingEntity(j => j.ToTable("PostTageTest"));
         }
 
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         // public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
