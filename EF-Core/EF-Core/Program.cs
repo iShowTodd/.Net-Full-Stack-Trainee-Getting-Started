@@ -12,6 +12,12 @@
             var post2 = _context.Posts.Single(p => p.Id == 1); //  Selecting single element using single
             var post3 = _context.Posts.SingleOrDefault(p => p.Id == 1); //  Selecting single element using singleOrDefault
 
+            var post4 = _context.Posts.First();
+
+            var post5 = _context.Posts.OrderBy(p => p.Id).Last(); // you must use orderby before using last
+            var post6 = _context.Posts.FirstOrDefault(p => p.Id > 100);
+            var post7 = _context.Posts.OrderBy(p => p.Id).LastOrDefault(p => p.Id < 100); // you must use orderby before LastOrDefault
+
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();
 
