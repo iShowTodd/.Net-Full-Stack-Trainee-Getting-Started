@@ -48,11 +48,20 @@ namespace EF_Core1
             //
             // modelBuilder.Entity<Category>().Property(c => c.Id).ValueGeneratedOnAdd();
 
+            // One to one relationship and a FK inside the child BlogImage
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .HasOne(b => b.BlogImage)
+            //     .WithOne(i => i.Blog)
+            //     .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
+
+            // One to Many Relationship
             modelBuilder
                 .Entity<Blog>()
-                .HasOne(b => b.BlogImage)
-                .WithOne(i => i.Blog)
-                .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
+                .HasMany<Post>(b => b.Posts)
+                .WithOne(p => p.Blog)
+                .HasForeignKey(p => p.BlogId);
+            // .HasConstrainName("FK_New_Name") → to change the FK name
         }
 
         public DbSet<Blog> Blogs { get; set; }
