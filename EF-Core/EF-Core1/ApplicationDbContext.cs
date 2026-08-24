@@ -126,12 +126,27 @@ namespace EF_Core1
             //     .Entity<Blog>()
             //     .HasIndex(b => b.Url)
             //     .HasFilter("[URL] IS NOT NULL");
+
+            modelBuilder.HasSequence<int>("OrderNumber", schema: "blogging");
+
+            modelBuilder
+                .Entity<Order>()
+                .Property(o => o.OrderNo)
+                .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
+
+            modelBuilder
+                .Entity<OrderTest>()
+                .Property(o => o.OrderNo)
+                .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
         }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderTest> OrderTests { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Tag> Tags { get; set; }
+
+        // public DbSet<Post> Posts { get; set; }
+        // public DbSet<Tag> Tags { get; set; }
 
         // public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
@@ -139,11 +154,17 @@ namespace EF_Core1
         public DbSet<BlogImage> BlogImages { get; set; }
     }
 
-    // [Index(nameof(FirstName), nameof(LastName), IsUnique = true, Name = "Index_url")]
-    public class Person
+    public class Order
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int OrderNo { get; set; }
+        public double Amount { get; set; }
+    }
+
+    public class OrderTest
+    {
+        public int Id { get; set; }
+        public int OrderNo { get; set; }
+        public double Amount { get; set; }
     }
 }
