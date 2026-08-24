@@ -20,6 +20,9 @@
             //Filtering
             var post8 = _context.Posts.Where(p => p.Id < 50); // select all elements < 50
 
+            // Any vs All
+            var isExisted = _context.Posts.Any(p => p.Id == 1); // returns true or false
+            var AllExisted = _context.Posts.All(p => p.Id > 100); // returns if all (true , false)
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();
 
