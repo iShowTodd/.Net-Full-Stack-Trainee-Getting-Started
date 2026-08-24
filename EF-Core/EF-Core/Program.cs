@@ -1,12 +1,13 @@
-﻿// using EF_Core1.Models;
-
-namespace EF_Core1
+﻿namespace EF_Core1
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
             var _context = new ApplicationDbContext();
+
+            var posts = _context.Posts.ToList(); // selecting all items
+            var post = _context.Posts.Find(1); // selecting by PK
 
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();

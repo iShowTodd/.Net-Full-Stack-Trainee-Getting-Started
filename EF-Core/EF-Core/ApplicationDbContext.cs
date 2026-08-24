@@ -180,7 +180,7 @@ namespace EF_Core1
         // public DbSet<Person> Persons { get; set; }
         // public DbSet<Blog> Blogs { get; set; }
         //
-        // public DbSet<Post> Posts { get; set; }
+        public DbSet<Post> Posts { get; set; }
         //
         // // public DbSet<Tag> Tags { get; set; }
         //
