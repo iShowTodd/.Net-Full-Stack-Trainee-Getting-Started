@@ -23,6 +23,22 @@
             // Any vs All
             var isExisted = _context.Posts.Any(p => p.Id == 1); // returns true or false
             var AllExisted = _context.Posts.All(p => p.Id > 100); // returns if all (true , false)
+
+            // Append and prepend → it is only cliend side not saved in the server
+            var pinnedPost = new Post
+            {
+                Id = 0,
+                Title = " Start Here",
+                Content = "Welcome!",
+                BlogId = 1,
+            };
+
+            var feed = _context
+                .Posts.Where(p => p.BlogId == 1)
+                .OrderBy(p => p.Id)
+                .Prepend(pinnedPost) // always first
+                .ToList();
+
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();
 
