@@ -121,6 +121,11 @@ namespace EF_Core1
             //     .HasIndex(p => new { p.FirstName, p.LastName })
             //     .HasDatabaseName("person_idx")
             //     .IsUnique();
+
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .HasIndex(b => b.Url)
+            //     .HasFilter("[URL] IS NOT NULL");
         }
 
         public DbSet<Person> Persons { get; set; }
