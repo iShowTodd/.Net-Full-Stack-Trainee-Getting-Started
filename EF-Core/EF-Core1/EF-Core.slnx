@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EF-Core1.csproj" />
+  <Project Path="EF-Core2/EF-Core2.csproj" />
+</Solution>

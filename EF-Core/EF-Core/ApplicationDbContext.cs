@@ -1,5 +1,5 @@
-﻿using EF_Core1.Configruations;
-using EF_Core1.Models;
+﻿// using EF_Core1.Configruations;
+// using EF_Core1.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EF_Core1
@@ -13,11 +13,11 @@ namespace EF_Core1
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
+            // new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
             // modelBuilder.Ignore<Post>(); Fluent API way to exclude property from miagration
             // modelBuilder.Entity<Post>().ToTable("posts");
             // modelBuilder.Entity<Post>().ToTable("Posts", schema: "blogging");
-            modelBuilder.HasDefaultSchema("blogging");
+            // modelBuilder.HasDefaultSchema("blogging");
             // modelBuilder.Entity<Blog>().Ignore(b => b.AddedOn);
             // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnName("BlogUrl");
             // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnType("varchar(200)");
@@ -141,52 +141,52 @@ namespace EF_Core1
             //     .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
 
             // Data seeding
-            modelBuilder
-                .Entity<Blog>()
-                .HasData(
-                    new Blog { Id = 2, Url = "https://devblog.io" },
-                    new Blog { Id = 3, Url = "https://techtalks.net" }
-                );
-
-            modelBuilder
-                .Entity<Post>()
-                .HasData(
-                    new Post
-                    {
-                        Id = 1,
-                        Title = "EF Core Basics",
-                        Content = "Getting started with EF Core.",
-                        BlogId = 1,
-                    },
-                    new Post
-                    {
-                        Id = 2,
-                        Title = "Migrations Deep Dive",
-                        Content = "How migrations work internally.",
-                        BlogId = 1,
-                    },
-                    new Post
-                    {
-                        Id = 3,
-                        Title = "REST API Tips",
-                        Content = "Best practices for REST APIs.",
-                        BlogId = 2,
-                    }
-                );
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .HasData(
+            //         new Blog { Id = 2, Url = "https://devblog.io" },
+            //         new Blog { Id = 3, Url = "https://techtalks.net" }
+            //     );
+            //
+            // modelBuilder
+            //     .Entity<Post>()
+            //     .HasData(
+            //         new Post
+            //         {
+            //             Id = 1,
+            //             Title = "EF Core Basics",
+            //             Content = "Getting started with EF Core.",
+            //             BlogId = 1,
+            //         },
+            //         new Post
+            //         {
+            //             Id = 2,
+            //             Title = "Migrations Deep Dive",
+            //             Content = "How migrations work internally.",
+            //             BlogId = 1,
+            //         },
+            //         new Post
+            //         {
+            //             Id = 3,
+            //             Title = "REST API Tips",
+            //             Content = "Best practices for REST APIs.",
+            //             BlogId = 2,
+            //         }
+            //     );
         }
 
         // public DbSet<Order> Orders { get; set; }
         // public DbSet<OrderTest> OrderTests { get; set; }
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
-
+        // public DbSet<Person> Persons { get; set; }
+        // public DbSet<Blog> Blogs { get; set; }
+        //
         public DbSet<Post> Posts { get; set; }
-
-        // public DbSet<Tag> Tags { get; set; }
-
-        // public DbSet<Book> Books { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<BlogImage> BlogImages { get; set; }
+        //
+        // // public DbSet<Tag> Tags { get; set; }
+        //
+        // // public DbSet<Book> Books { get; set; }
+        // public DbSet<Author> Authors { get; set; }
+        // public DbSet<Category> Categories { get; set; }
+        // public DbSet<BlogImage> BlogImages { get; set; }
     }
 }
