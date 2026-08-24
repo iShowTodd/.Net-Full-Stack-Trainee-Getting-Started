@@ -89,7 +89,7 @@ namespace EF_Core1
             //             j.HasKey(t => new { t.PostId, t.TagId });
             //         }
             //     );
-
+            // Indirect many to many relationship
             /*
              modelBuilder.Entity<PostTag>()
                 .HasKey(pt => new { pt.PostId, pt.TagId });
@@ -107,6 +107,10 @@ namespace EF_Core1
             modelBuilder.Entity<PostTag>()
                 .Property(pt => pt.AddedOn)
                 .HasDefaultValueSql("GETDATE()");*/
+
+            modelBuilder
+                .Entity<Blog>()
+                .HasIndex(b => b.Url);
         }
 
         public DbSet<Blog> Blogs { get; set; }

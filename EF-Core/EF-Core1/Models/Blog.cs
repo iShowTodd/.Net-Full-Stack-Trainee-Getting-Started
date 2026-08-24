@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EF_Core1.Models;
 
+// [Index(nameof(Url))]
 public class Blog
 {
     public int Id { get; set; }
