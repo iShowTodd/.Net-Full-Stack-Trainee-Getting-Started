@@ -112,9 +112,14 @@ namespace EF_Core1
             //     .Entity<Blog>()
             //     .HasIndex(b => b.Url);
 
+            // modelBuilder
+            //     .Entity<Person>()
+            //     .HasIndex(p => new { p.FirstName, p.LastName });
+
             modelBuilder
                 .Entity<Person>()
-                .HasIndex(p => new { p.FirstName, p.LastName });
+                .HasIndex(p => new { p.FirstName, p.LastName })
+                .IsUnique();
         }
 
         public DbSet<Person> Persons { get; set; }
@@ -128,7 +133,7 @@ namespace EF_Core1
         public DbSet<BlogImage> BlogImages { get; set; }
     }
 
-    // [Index(nameof(FirstName), nameof(LastName))]
+    // [Index(nameof(FirstName), nameof(LastName), IsUnique = true)]
     public class Person
     {
         public int Id { get; set; }
