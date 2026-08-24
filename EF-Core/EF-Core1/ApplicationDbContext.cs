@@ -62,12 +62,32 @@ namespace EF_Core1
             //     .WithOne(p => p.Blog)
             //     .HasForeignKey(p => p.BlogId);
             // .HasConstrainName("FK_New_Name") → to change the FK name
+            //
+            // modelBuilder
+            //     .Entity<Post>()
+            //     .HasMany<Tag>(p => p.Tags)
+            //     .WithMany(t => t.Posts)
+            //     .UsingEntity(j => j.ToTable("PostTageTest"));
 
             modelBuilder
                 .Entity<Post>()
                 .HasMany<Tag>(p => p.Tags)
                 .WithMany(t => t.Posts)
-                .UsingEntity(j => j.ToTable("PostTageTest"));
+                .UsingEntity<PostTag>(
+                    j =>
+                        j.HasOne(pt => pt.Tag)
+                            .WithMany(t => t.PostTags)
+                            .HasForeignKey(pt => pt.TagId),
+                    j =>
+                        j.HasOne(pt => pt.Post)
+                            .WithMany(p => p.PostTags)
+                            .HasForeignKey(pt => pt.PostId),
+                    j =>
+                    {
+                        j.Property(pt => pt.AddedOne).HasDefaultValueSql("GETDATE()");
+                        j.HasKey(t => new { t.PostId, t.TagId });
+                    }
+                );
         }
 
         public DbSet<Blog> Blogs { get; set; }
