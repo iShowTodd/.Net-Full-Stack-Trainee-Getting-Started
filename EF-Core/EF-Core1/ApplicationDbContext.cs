@@ -40,9 +40,15 @@ namespace EF_Core1
 
             modelBuilder.Entity<Blog>().Property(b => b.Rating).HasDefaultValue(2);
             modelBuilder.Entity<Blog>().Property(b => b.AddedOn).HasDefaultValueSql("GetDate()");
+
+            modelBuilder
+                .Entity<Author>()
+                .Property(a => a.DisplayName)
+                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
         }
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
 }
