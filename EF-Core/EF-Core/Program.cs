@@ -17,6 +17,8 @@
             var post5 = _context.Posts.OrderBy(p => p.Id).Last(); // you must use orderby before using last
             var post6 = _context.Posts.FirstOrDefault(p => p.Id > 100);
             var post7 = _context.Posts.OrderBy(p => p.Id).LastOrDefault(p => p.Id < 100); // you must use orderby before LastOrDefault
+            //Filtering
+            var post8 = _context.Posts.Where(p => p.Id < 50); // select all elements < 50
 
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();
