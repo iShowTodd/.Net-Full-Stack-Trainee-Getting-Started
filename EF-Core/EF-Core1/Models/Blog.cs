@@ -15,6 +15,8 @@ public class Blog
     // [Comment("this comment is about URL")]
     public string Url { get; set; }
 
+    public int Rating { get; set; }
+
     // [NotMapped] → Data annotaiton way to Exclude Entity from model
     public List<Post> Posts { get; set; }
 
