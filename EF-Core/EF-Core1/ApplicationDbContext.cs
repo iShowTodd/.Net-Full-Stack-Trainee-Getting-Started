@@ -45,10 +45,13 @@ namespace EF_Core1
                 .Entity<Author>()
                 .Property(a => a.DisplayName)
                 .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
+
+            modelBuilder.Entity<Category>().Property(c => c.Id).ValueGeneratedOnAdd();
         }
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
