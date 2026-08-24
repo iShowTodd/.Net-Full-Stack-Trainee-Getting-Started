@@ -127,44 +127,66 @@ namespace EF_Core1
             //     .HasIndex(b => b.Url)
             //     .HasFilter("[URL] IS NOT NULL");
 
-            modelBuilder.HasSequence<int>("OrderNumber", schema: "blogging");
+            // Sequences
+            // modelBuilder.HasSequence<int>("OrderNumber", schema: "blogging");
+            //
+            // modelBuilder
+            //     .Entity<Order>()
+            //     .Property(o => o.OrderNo)
+            //     .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
+            //
+            // modelBuilder
+            //     .Entity<OrderTest>()
+            //     .Property(o => o.OrderNo)
+            //     .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
+
+            // Data seeding
+            modelBuilder
+                .Entity<Blog>()
+                .HasData(
+                    new Blog { Id = 2, Url = "https://devblog.io" },
+                    new Blog { Id = 3, Url = "https://techtalks.net" }
+                );
 
             modelBuilder
-                .Entity<Order>()
-                .Property(o => o.OrderNo)
-                .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
-
-            modelBuilder
-                .Entity<OrderTest>()
-                .Property(o => o.OrderNo)
-                .HasDefaultValueSql("NEXT VALUE FOR blogging.OrderNumber");
+                .Entity<Post>()
+                .HasData(
+                    new Post
+                    {
+                        Id = 1,
+                        Title = "EF Core Basics",
+                        Content = "Getting started with EF Core.",
+                        BlogId = 1,
+                    },
+                    new Post
+                    {
+                        Id = 2,
+                        Title = "Migrations Deep Dive",
+                        Content = "How migrations work internally.",
+                        BlogId = 1,
+                    },
+                    new Post
+                    {
+                        Id = 3,
+                        Title = "REST API Tips",
+                        Content = "Best practices for REST APIs.",
+                        BlogId = 2,
+                    }
+                );
         }
 
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderTest> OrderTests { get; set; }
+        // public DbSet<Order> Orders { get; set; }
+        // public DbSet<OrderTest> OrderTests { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 
-        // public DbSet<Post> Posts { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
         // public DbSet<Tag> Tags { get; set; }
 
         // public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<BlogImage> BlogImages { get; set; }
-    }
-
-    public class Order
-    {
-        public int Id { get; set; }
-        public int OrderNo { get; set; }
-        public double Amount { get; set; }
-    }
-
-    public class OrderTest
-    {
-        public int Id { get; set; }
-        public int OrderNo { get; set; }
-        public double Amount { get; set; }
     }
 }
