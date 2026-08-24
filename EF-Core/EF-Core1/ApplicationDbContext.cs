@@ -69,25 +69,44 @@ namespace EF_Core1
             //     .WithMany(t => t.Posts)
             //     .UsingEntity(j => j.ToTable("PostTageTest"));
 
-            modelBuilder
-                .Entity<Post>()
-                .HasMany<Tag>(p => p.Tags)
-                .WithMany(t => t.Posts)
-                .UsingEntity<PostTag>(
-                    j =>
-                        j.HasOne(pt => pt.Tag)
-                            .WithMany(t => t.PostTags)
-                            .HasForeignKey(pt => pt.TagId),
-                    j =>
-                        j.HasOne(pt => pt.Post)
-                            .WithMany(p => p.PostTags)
-                            .HasForeignKey(pt => pt.PostId),
-                    j =>
-                    {
-                        j.Property(pt => pt.AddedOne).HasDefaultValueSql("GETDATE()");
-                        j.HasKey(t => new { t.PostId, t.TagId });
-                    }
-                );
+            // Many To Many Relationship
+            // modelBuilder
+            //     .Entity<Post>()
+            //     .HasMany<Tag>(p => p.Tags)
+            //     .WithMany(t => t.Posts)
+            //     .UsingEntity<PostTag>(
+            //         j =>
+            //             j.HasOne(pt => pt.Tag)
+            //                 .WithMany(t => t.PostTags)
+            //                 .HasForeignKey(pt => pt.TagId),
+            //         j =>
+            //             j.HasOne(pt => pt.Post)
+            //                 .WithMany(p => p.PostTags)
+            //                 .HasForeignKey(pt => pt.PostId),
+            //         j =>
+            //         {
+            //             j.Property(pt => pt.AddedOne).HasDefaultValueSql("GETDATE()");
+            //             j.HasKey(t => new { t.PostId, t.TagId });
+            //         }
+            //     );
+
+            /*
+             modelBuilder.Entity<PostTag>()
+                .HasKey(pt => new { pt.PostId, pt.TagId });
+
+            modelBuilder.Entity<PostTag>()
+                .HasOne(pt => pt.Post)
+                .WithMany(p => p.PostTags)
+                .HasForeignKey(pt => pt.PostId);
+    
+            modelBuilder.Entity<PostTag>()
+                .HasOne(pt => pt.Tag)
+                .WithMany(t => t.PostTags)
+                .HasForeignKey(pt => pt.TagId);
+
+            modelBuilder.Entity<PostTag>()
+                .Property(pt => pt.AddedOn)
+                .HasDefaultValueSql("GETDATE()");*/
         }
 
         public DbSet<Blog> Blogs { get; set; }
