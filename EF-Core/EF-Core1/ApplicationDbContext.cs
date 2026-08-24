@@ -16,7 +16,7 @@ namespace EF_Core1
             new BlogEntityTypeConfiguration().Configure(modelBuilder.Entity<Blog>());
             // modelBuilder.Ignore<Post>(); Fluent API way to exclude property from miagration
             // modelBuilder.Entity<Post>().ToTable("posts");
-            modelBuilder.Entity<Post>().ToTable("Posts", schema: "blogging");
+            // modelBuilder.Entity<Post>().ToTable("Posts", schema: "blogging");
             modelBuilder.HasDefaultSchema("blogging");
             // modelBuilder.Entity<Blog>().Ignore(b => b.AddedOn);
             // modelBuilder.Entity<Blog>().Property(b => b.Url).HasColumnName("BlogUrl");
@@ -35,23 +35,31 @@ namespace EF_Core1
             //     .Property(b => b.Url)
             //     .HasComment("this is a url comment");
 
-            modelBuilder.Entity<Book>().HasKey(b => b.BookKey).HasName("BookId"); // set bookkey as PK
+            // modelBuilder.Entity<Book>().HasKey(b => b.BookKey).HasName("BookId"); // set bookkey as PK
             // modelBuilder.Entity<Book>().HasKey(b => new { b.Title, b.Author }); // composite PK
 
-            modelBuilder.Entity<Blog>().Property(b => b.Rating).HasDefaultValue(2);
-            modelBuilder.Entity<Blog>().Property(b => b.AddedOn).HasDefaultValueSql("GetDate()");
+            // modelBuilder.Entity<Blog>().Property(b => b.Rating).HasDefaultValue(2);
+            // modelBuilder.Entity<Blog>().Property(b => b.AddedOn).HasDefaultValueSql("GetDate()");
+
+            // modelBuilder
+            //     .Entity<Author>()
+            //     .Property(a => a.DisplayName)
+            //     .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
+            //
+            // modelBuilder.Entity<Category>().Property(c => c.Id).ValueGeneratedOnAdd();
 
             modelBuilder
-                .Entity<Author>()
-                .Property(a => a.DisplayName)
-                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
-
-            modelBuilder.Entity<Category>().Property(c => c.Id).ValueGeneratedOnAdd();
+                .Entity<Blog>()
+                .HasOne(b => b.BlogImage)
+                .WithOne(i => i.Blog)
+                .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
         }
 
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Book> Books { get; set; }
+
+        // public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<BlogImage> BlogImages { get; set; }
     }
 }

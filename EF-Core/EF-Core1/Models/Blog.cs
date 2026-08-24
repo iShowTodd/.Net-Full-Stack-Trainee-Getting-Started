@@ -8,18 +8,18 @@ public class Blog
 {
     public int Id { get; set; }
 
-    // [Required]
+    [Required]
     // [Column("BlogURL")]
     // [Column(TypeName = "varchar(200)")]
-    // [MaxLength(200)]
+    [MaxLength(200)]
     // [Comment("this comment is about URL")]
     public string Url { get; set; }
-
-    public int Rating { get; set; }
+    public BlogImage BlogImage { get; set; }
+    // public int Rating { get; set; }
 
     // [NotMapped] → Data annotaiton way to Exclude Entity from model
-    public List<Post> Posts { get; set; }
+    // public List<Post> Posts { get; set; }
 
     // [NotMapped]  Data annotaiton way to Exclude property from model
-    public DateTime AddedOn { get; set; }
+    // public DateTime AddedOn { get; set; }
 }
