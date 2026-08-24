@@ -108,11 +108,16 @@ namespace EF_Core1
                 .Property(pt => pt.AddedOn)
                 .HasDefaultValueSql("GETDATE()");*/
 
+            // modelBuilder
+            //     .Entity<Blog>()
+            //     .HasIndex(b => b.Url);
+
             modelBuilder
-                .Entity<Blog>()
-                .HasIndex(b => b.Url);
+                .Entity<Person>()
+                .HasIndex(p => new { p.FirstName, p.LastName });
         }
 
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -121,5 +126,13 @@ namespace EF_Core1
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<BlogImage> BlogImages { get; set; }
+    }
+
+    // [Index(nameof(FirstName), nameof(LastName))]
+    public class Person
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
