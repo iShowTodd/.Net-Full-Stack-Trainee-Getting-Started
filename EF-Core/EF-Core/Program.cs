@@ -39,6 +39,18 @@
                 .Prepend(pinnedPost) // always first
                 .ToList();
 
+            // Count , Average , Some
+            int total = _context.Posts.Count(); // number of rows
+            // Posts in Blog 1
+            int blog1Count = _context.Posts.Count(p => p.BlogId == 1);
+            // result: 3
+
+            // Total views across all posts (Sum)
+            // int totalViews = _context.Posts.Sum(p => p.Views);
+
+            // Average views across all posts
+            // double avgViews = _context.Posts.Average(p => p.Views);
+
             // _context.Blogs.Add(new Blog() { AddedOn = DateTime.Now, Url = "test.com" });
             // _context.SaveChanges();
 
