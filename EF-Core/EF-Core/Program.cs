@@ -1,4 +1,6 @@
-﻿namespace EF_Core1
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace EF_Core1
 {
     internal class Program
     {
@@ -100,7 +102,14 @@
                         }
                 )
                 .ToList();
+            // Tracking vs Non Tracking
+            // Tracking (default) — EF watches changes, slower for read-only
+            var tracedPost = _context.Posts.First(p => p.Id == 1);
+            post.Title = "Updated";
+            _context.SaveChanges(); // EF detects change automatically
 
+            // NoTracking — faster for read-only queries
+            var nonTracedPosts = _context.Posts.AsNoTracking().ToList();
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
