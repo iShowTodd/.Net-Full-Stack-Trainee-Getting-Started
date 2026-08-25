@@ -198,6 +198,14 @@ namespace EF_Core1
                 }
              *
              */
+            
+            // Bulk Delete
+            _context.Posts.Where(p => p.BlogId == 1).ExecuteDelete();
+
+            // Bulk Update
+            _context.Posts
+                .Where(p => p.BlogId == 1)
+                .ExecuteUpdate(s => s.SetProperty(p => p.Title, p => p.Title + " [archived]"))
 
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
