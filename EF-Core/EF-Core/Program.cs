@@ -180,6 +180,25 @@ namespace EF_Core1
             context.Blogs.Remove(blog); // removes blog + all its posts
             context.SaveChanges();*/
 
+            /* Transactions
+             *using var transaction = context.Database.BeginTransaction();
+                try
+                {
+                    context.Posts.Add(new Post { Title = "Post 1", Content = "...", BlogId = 1 });
+                    context.SaveChanges();
+                
+                    context.Posts.Add(new Post { Title = "Post 2", Content = "...", BlogId = 1 });
+                    context.SaveChanges();
+                
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }
+             *
+             */
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
