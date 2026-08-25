@@ -46,6 +46,18 @@
                 .Take(pageSize)
                 .ToList();
 
+            // GroupBy
+
+            var postsByBlog = _context
+                .Posts.GroupBy(p => p.BlogId)
+                .Select(g => new
+                {
+                    BlogId = g.Key,
+                    Count = g.Count(),
+                    Posts = g.ToList(),
+                })
+                .ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
