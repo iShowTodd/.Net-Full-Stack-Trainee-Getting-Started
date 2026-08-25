@@ -31,6 +31,10 @@
             // orderby
             var content = _context.Posts.OrderBy(p => p.Content).ToList();
 
+            // Select
+            // create new form of data
+            // var selected = _context.Posts.Select(p => new { });
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
