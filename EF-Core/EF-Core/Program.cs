@@ -148,6 +148,38 @@ namespace EF_Core1
             // // Bypass filter when needed
             // var allPosts = context.Posts.IgnoreQueryFilters().ToList();
 
+            /*// Add single
+            context.Posts.Add(new Post { Title = "New Post", Content = "...", BlogId = 1 });
+            context.SaveChanges();
+            
+            // Add with related data
+            var blog = new Blog
+            {
+                Name = "New Blog",
+                Posts = new List<Post>
+                {
+                    new Post { Title = "Post 1", Content = "..." },
+                    new Post { Title = "Post 2", Content = "..." }
+                }
+            };
+            context.Blogs.Add(blog);
+            context.SaveChanges();
+            
+            // Update
+            var post = context.Posts.Find(1);
+            post.Title = "Updated Title";
+            context.SaveChanges();
+            
+            // Remove
+            var post = context.Posts.Find(1);
+            context.Posts.Remove(post);
+            context.SaveChanges();
+            
+            // Delete related data (cascade)
+            var blog = context.Blogs.Include(b => b.Posts).First(b => b.Id == 1);
+            context.Blogs.Remove(blog); // removes blog + all its posts
+            context.SaveChanges();*/
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
