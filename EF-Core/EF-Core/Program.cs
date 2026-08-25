@@ -117,6 +117,14 @@ namespace EF_Core1
             var ExplicitlyLoaded = _context.Posts.First(p => p.Id == 1);
             _context.Entry(post).Reference(p => p.Blog).Load();
 
+            // Lazy Loading — loads automatically when accessed (needs proxies)
+            // Install: Microsoft.EntityFrameworkCore.Proxies
+            // options.UseLazyLoadingProxies();
+            // Then just access: post.Blog.Name (loads automatically)
+
+            // Split Queries — avoids cartesian explosion on multiple Includes
+            var blogs = _context.Blogs.Include(b => b.Posts).AsSplitQuery().ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
