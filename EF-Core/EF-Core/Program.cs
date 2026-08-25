@@ -139,6 +139,15 @@ namespace EF_Core1
                 context.Database.ExecuteSqlRaw(
                     "UPDATE Posts SET Title = {0} WHERE Id = {1}", "New Title", 1);*/
 
+            // // Define filter (e.g. soft delete) (Global Query Filter)
+            // modelBuilder.Entity<Post>().HasQueryFilter(p => !p.IsDeleted);
+            //
+            // // All queries now automatically exclude deleted posts
+            // var posts = context.Posts.ToList(); // WHERE IsDeleted = 0
+            //
+            // // Bypass filter when needed
+            // var allPosts = context.Posts.IgnoreQueryFilters().ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
