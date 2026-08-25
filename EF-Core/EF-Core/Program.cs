@@ -24,6 +24,10 @@
             var isExisted = _context.Posts.Any(p => p.Id == 1); // returns true or false
             var AllExisted = _context.Posts.All(p => p.Id > 100); // returns if all (true , false)
 
+            // Min vs Max
+            var minValue = _context.Posts.Min(p => p.Content.Length); // min value
+            var maxValue = _context.Posts.Max(p => p.Content.Length); // max value
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
