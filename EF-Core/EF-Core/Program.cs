@@ -57,6 +57,32 @@
                     Posts = g.ToList(),
                 })
                 .ToList();
+            // inner join
+            var res = _context.Posts.Join(
+                _context.Blogs,
+                post => post.BlogId,
+                blog => blog.Id,
+                (post, blog) =>
+                    new
+                    {
+                        PostId = post.Id,
+                        BlogId = blog.Id,
+                        BlogUrl = blog.Url,
+                    }
+            );
+
+            // Join using LINQ
+
+            var res2 = (
+                from p in _context.Posts
+                join b in _context.Blogs on p.BlogId equals b.Id
+                select new
+                {
+                    PostId = p.Id,
+                    BlogId = b.Id,
+                    BlogUrl = b.Url,
+                }
+            ).ToList();
 
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
