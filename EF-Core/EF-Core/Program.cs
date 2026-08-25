@@ -36,6 +36,15 @@
             // var selected = _context.Posts.Select(p => new { });
 
             // var selected = _context.Posts.Select(p => new { }).Distinct().toList();
+            // Pagination using take and skip
+            var page = 2;
+            var pageSize = 3;
+
+            var paginatedPosts = _context
+                .Posts.OrderBy(p => p.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
 
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
