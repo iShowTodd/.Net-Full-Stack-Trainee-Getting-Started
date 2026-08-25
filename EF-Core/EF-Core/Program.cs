@@ -35,6 +35,8 @@
             // create new form of data
             // var selected = _context.Posts.Select(p => new { });
 
+            // var selected = _context.Posts.Select(p => new { }).Distinct().toList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
