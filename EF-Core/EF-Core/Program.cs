@@ -28,6 +28,9 @@
             var minValue = _context.Posts.Min(p => p.Content.Length); // min value
             var maxValue = _context.Posts.Max(p => p.Content.Length); // max value
 
+            // orderby
+            var content = _context.Posts.OrderBy(p => p.Content).ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
