@@ -110,6 +110,9 @@ namespace EF_Core1
 
             // NoTracking — faster for read-only queries
             var nonTracedPosts = _context.Posts.AsNoTracking().ToList();
+            // Eager Loading — loads Blog with Posts in one query (Bad Performance)
+            var EagerLoaded = _context.Posts.Include(p => p.Blog).ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
