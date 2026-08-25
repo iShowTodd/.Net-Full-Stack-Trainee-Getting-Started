@@ -113,6 +113,10 @@ namespace EF_Core1
             // Eager Loading — loads Blog with Posts in one query (Bad Performance)
             var EagerLoaded = _context.Posts.Include(p => p.Blog).ToList();
 
+            // Explicit Loading — load related data on demand
+            var ExplicitlyLoaded = _context.Posts.First(p => p.Id == 1);
+            _context.Entry(post).Reference(p => p.Blog).Load();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
