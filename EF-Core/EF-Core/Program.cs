@@ -84,6 +84,23 @@
                 }
             ).ToList();
 
+            // Left Join
+
+            var res3 = _context
+                .Blogs.GroupJoin(
+                    _context.Posts,
+                    blog => blog.Id,
+                    post => post.BlogId,
+                    (blog, posts) =>
+                        new
+                        {
+                            BlogId = blog.Id,
+                            BlogName = blog.Url,
+                            Posts = posts.ToList(),
+                        }
+                )
+                .ToList();
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
