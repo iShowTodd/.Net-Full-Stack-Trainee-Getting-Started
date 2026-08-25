@@ -125,6 +125,20 @@ namespace EF_Core1
             // Split Queries — avoids cartesian explosion on multiple Includes
             var blogs = _context.Blogs.Include(b => b.Posts).AsSplitQuery().ToList();
 
+            /*// Select with raw SQL (Do Not Use it )
+                var posts = context.Posts
+                    .FromSqlRaw("SELECT * FROM Posts WHERE BlogId = {0}", 1)
+                    .ToList();
+                
+                // With stored procedure
+                var posts = context.Posts
+                    .FromSqlRaw("EXEC GetPostsByBlog @BlogId = {0}", 1)
+                    .ToList();
+                
+                // Execute non-query (INSERT/UPDATE/DELETE)
+                context.Database.ExecuteSqlRaw(
+                    "UPDATE Posts SET Title = {0} WHERE Id = {1}", "New Title", 1);*/
+
             // Append and prepend → it is only cliend side not saved in the server
             var pinnedPost = new Post
             {
