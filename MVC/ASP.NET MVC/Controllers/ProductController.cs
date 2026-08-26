@@ -56,6 +56,17 @@ public class ProductController : Controller
         return viewResult;
     }
 
+    // for Json → return Json({});
+
+    public IActionResult ShowMix(int id)
+    {
+        if (id % 2 == 0)
+        {
+            return Content("This is a new way of sending");
+        }
+        return View("View1");
+    }
+
     // Types the Action can return
     // 1. Views (HTML files) ==> ViewResult
     // 2. Content or Data types ==> ContentResult
