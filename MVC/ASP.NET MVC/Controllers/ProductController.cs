@@ -33,6 +33,12 @@ public class ProductController : Controller
         return viewResult;
     }
 
+    public JsonResult showJson()
+    {
+        var jsonResult = new JsonResult(new { Id = 1, Name = "Ahmed" });
+        return jsonResult;
+    }
+
     // Types the Action can return
     // 1. Views (HTML files) ==> ViewResult
     // 2. Content or Data types ==> ContentResult
