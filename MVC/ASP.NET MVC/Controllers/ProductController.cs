@@ -39,6 +39,23 @@ public class ProductController : Controller
         return jsonResult;
     }
 
+    // Path Param or Query Param
+    public IActionResult showResult(int id)
+    {
+        if (id % 2 == 0)
+        {
+            // Declare Object
+            var contentResult = new ContentResult();
+            // Set Data
+            contentResult.Content = "Local Message";
+            // Return it
+            return contentResult;
+        }
+        var viewResult = new ViewResult();
+        viewResult.ViewName = "View1";
+        return viewResult;
+    }
+
     // Types the Action can return
     // 1. Views (HTML files) ==> ViewResult
     // 2. Content or Data types ==> ContentResult
