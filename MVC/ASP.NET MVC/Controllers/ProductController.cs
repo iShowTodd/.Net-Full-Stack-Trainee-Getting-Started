@@ -40,7 +40,7 @@ public class ProductController : Controller
     }
 
     // Path Param or Query Param
-    public IActionResult showResult(int id)
+    public IActionResult ShowResult(int id)
     {
         if (id % 2 == 0)
         {
