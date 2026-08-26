@@ -1,9 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASP.NET_MVC.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NET_MVC.Controllers;
 
 public class ProductController : Controller
 {
+    private readonly ProductSampleData _db = new ProductSampleData();
+
+    public IActionResult Index()
+    {
+        return View("ProductIndex", _db.GetAll());
+    }
+
+    public IActionResult Details(int id)
+    {
+        var product = _db.GetById(id);
+        if (product == null) return NotFound();
+        return View("ProductDetails", product);
+    }
+
+    public IActionResult Create() => View("ProductCreate");
+
     // GET
     // this is called Action (NOT METHOD) , this is can not either be private or static or overloaded
     // public IActionResult Index()
@@ -31,6 +48,40 @@ public class ProductController : Controller
         var viewResult = new ViewResult();
         viewResult.ViewName = "View1";
         return viewResult;
+    }
+
+    public JsonResult showJson()
+    {
+        var jsonResult = new JsonResult(new { Id = 1, Name = "Ahmed" });
+        return jsonResult;
+    }
+
+    // Path Param or Query Param
+    public IActionResult ShowResult(int id)
+    {
+        if (id % 2 == 0)
+        {
+            // Declare Object
+            var contentResult = new ContentResult();
+            // Set Data
+            contentResult.Content = "Local Message";
+            // Return it
+            return contentResult;
+        }
+        var viewResult = new ViewResult();
+        viewResult.ViewName = "View1";
+        return viewResult;
+    }
+
+    // for Json → return Json({});
+
+    public IActionResult ShowMix(int id)
+    {
+        if (id % 2 == 0)
+        {
+            return Content("This is a new way of sending");
+        }
+        return View("View1");
     }
 
     // Types the Action can return

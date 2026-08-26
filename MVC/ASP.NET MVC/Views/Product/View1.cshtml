@@ -1,1 +1,40 @@
 ﻿<h1> Welcome to MVC </h1>
+
+@{
+    // razor Syntax (Block of C# Code)
+    int x = 5;
+    int y = x++;
+}
+
+@* Inline Expression
+ *@
+@x
+<h1>@y</h1>
+
+@if (x > y)
+{
+    <h2> X is greater than y</h2>
+}
+else
+{
+    <h2> X is less than y</h2>
+
+}
+
+@for(int i = 0; i <= 10; ++i)
+{
+    <li>@i</li>
+}
+
+@* @foreach (var )
+{
+
+} *@
+
+<div id="div1"> Hello there, this is my first .NET trial</div>
+
+<style>
+    #div1 {
+        background-color: red;
+    }
+</style>
