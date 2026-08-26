@@ -11,13 +11,25 @@
 @x
 <h1>@y</h1>
 
-@if(x > y)
+@if (x > y)
 {
-
-}else
+    <h2> X is greater than y</h2>
+}
+else
 {
+    <h2> X is less than y</h2>
 
 }
+
+@for(int i = 0; i <= 10; ++i)
+{
+    <li>@i</li>
+}
+
+@* @foreach (var )
+{
+
+} *@
 
 <div id="div1"> Hello there, this is my first .NET trial</div>
 
