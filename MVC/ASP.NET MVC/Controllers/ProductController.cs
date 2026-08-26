@@ -5,13 +5,21 @@ namespace ASP.NET_MVC.Controllers;
 
 public class ProductController : Controller
 {
+    private readonly ProductSampleData _db = new ProductSampleData();
+
+    public IActionResult Index()
+    {
+        return View("ProductIndex", _db.GetAll());
+    }
+
     public IActionResult Details(int id)
     {
-        // Model
-        ProductSampleData productSampleData = new ProductSampleData();
-        Product productModel = productSampleData.GetById(id);
-        return View("ProductDetails", productModel);
+        var product = _db.GetById(id);
+        if (product == null) return NotFound();
+        return View("ProductDetails", product);
     }
+
+    public IActionResult Create() => View("ProductCreate");
 
     // GET
     // this is called Action (NOT METHOD) , this is can not either be private or static or overloaded
