@@ -11,23 +11,23 @@
             new Product { Id = 5, Name = "Keyboard", Price = 100, Description = "Mechanical keyboard", Image = "keyboard.jpg" },
         };
 
-        public static List<Product> GetAll()
+        public List<Product> GetAll()
         {
             return Products;
         }
 
-        public static Product GetById(int id)
+        public Product GetById(int id)
         {
             return Products.FirstOrDefault(p => p.Id == id);
         }
 
-        public static void Create(Product product)
+        public void Create(Product product)
         {
             product.Id = Products.Max(p => p.Id) + 1;
             Products.Add(product);
         }
 
-        public static void Update(int id, Product updated)
+        public void Update(int id, Product updated)
         {
             var product = Products.FirstOrDefault(p => p.Id == id);
             if (product == null) return;
@@ -37,7 +37,7 @@
             product.Image = updated.Image;
         }
 
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             var product = Products.FirstOrDefault(p => p.Id == id);
             if (product == null) return;

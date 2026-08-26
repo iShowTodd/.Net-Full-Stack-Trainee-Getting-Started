@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASP.NET_MVC.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NET_MVC.Controllers;
 
 public class ProductController : Controller
 {
+    public IActionResult Details(int id)
+    {
+        // Model
+        ProductSampleData productSampleData = new ProductSampleData();
+        Product productModel = productSampleData.GetById(id);
+        return View("ProductDetails", productModel);
+    }
+
     // GET
     // this is called Action (NOT METHOD) , this is can not either be private or static or overloaded
     // public IActionResult Index()
