@@ -13,6 +13,18 @@ public class Program
 
         // Configure the HTTP request pipeline.
         // These are built in Middlewares
+        /*
+            USE → Execute and call next middleware
+            Map → Execute and Route
+            Run → Execute and Terminate
+         */
+
+        app.Use(async (HttpContext, next) =>
+        {
+            await HttpContext.Response.WriteAsync("1) Write Custom Middleware");
+            await next.Invoke();
+        });
+
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
