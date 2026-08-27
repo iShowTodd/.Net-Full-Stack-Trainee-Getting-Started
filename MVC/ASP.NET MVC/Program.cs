@@ -12,6 +12,7 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
+        // These are built in Middlewares
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
