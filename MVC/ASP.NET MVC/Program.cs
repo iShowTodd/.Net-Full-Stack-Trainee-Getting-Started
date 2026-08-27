@@ -12,7 +12,7 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        // These are built in Middlewares
+        // These are Custom Middlewares in Middlewares
         /*
             USE → Execute and call next middleware
             Map → Execute and Route
@@ -30,24 +30,28 @@ public class Program
             await HttpContext.Response.WriteAsync("2) Write and Terminate Custom Middleware");
         });
 
-        //if (!app.Environment.IsDevelopment())
-        //{
-        //    app.UseExceptionHandler("/Home/Error");
-        //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        //    app.UseHsts();
-        //}
+        // Built-In Middlewares
 
-        //app.UseHttpsRedirection();
-        //app.UseRouting();
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+        }
 
-        //app.UseAuthorization();
+        //app.UseStaticFiles(); // used to manage the views Default (HTML , CSS , JS , IMAGES , VIDEOS ) in the wwwroot (Has alternatives in .Net 9)
+        app.UseHttpsRedirection();
 
-        //app.MapStaticAssets();
-        //app.MapControllerRoute(
-        //        name: "default",
-        //        pattern: "{controller=Home}/{action=Index}/{id?}")
-        //    .WithStaticAssets();
+        app.UseRouting();
 
-        //app.Run();
+        app.UseAuthorization();
+
+        app.MapStaticAssets(); // Alt : for UseStaticFiles
+        app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}")
+            .WithStaticAssets();
+
+        app.Run();
     }
 }
