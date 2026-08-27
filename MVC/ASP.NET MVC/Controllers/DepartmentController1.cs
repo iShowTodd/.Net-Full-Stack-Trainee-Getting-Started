@@ -9,6 +9,8 @@ namespace ASP.NET_MVC.Controllers
 
         public IActionResult Index()
         {
+            var depts = _db.Departments.ToList();
+            return View("Index", depts);
         }
     }
 }
