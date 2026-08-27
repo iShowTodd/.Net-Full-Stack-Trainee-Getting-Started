@@ -2,13 +2,13 @@
 
 namespace ASP.NET_MVC.Models
 {
-    public class ProjectEntitiy : DbContext
+    public class ProjectContext : DbContext
     {
-        public ProjectEntitiy() : base()
+        public ProjectContext() : base()
         {
         }
 
-        public ProjectEntitiy(DbContextOptions options) : base(options)
+        public ProjectContext(DbContextOptions options) : base(options)
         {
         }
 
