@@ -10,8 +10,10 @@ namespace ASP.NET_MVC.Controllers
         public IActionResult Index()
         {
             var depts = _db.Departments.ToList();
-            //return View("Index", depts);
-            return View(depts);
+            //return View("Index", depts);  // View = Index , Model = depts
+            return View(depts); // View = Index , Model = depts
+            //return View(); // View = Index , Model = null
+            //return View("Index"); // View = Index , Model = null
         }
     }
 }
