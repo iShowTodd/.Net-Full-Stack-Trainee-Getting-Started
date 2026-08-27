@@ -24,25 +24,30 @@ public class Program
             await HttpContext.Response.WriteAsync("1) Write Custom Middleware");
             await next.Invoke();
         });
-
-        if (!app.Environment.IsDevelopment())
+        // No Next as it terminates
+        app.Run(async (HttpContext) =>
         {
-            app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
-        }
+            await HttpContext.Response.WriteAsync("2) Write and Terminate Custom Middleware");
+        });
 
-        app.UseHttpsRedirection();
-        app.UseRouting();
+        //if (!app.Environment.IsDevelopment())
+        //{
+        //    app.UseExceptionHandler("/Home/Error");
+        //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        //    app.UseHsts();
+        //}
 
-        app.UseAuthorization();
+        //app.UseHttpsRedirection();
+        //app.UseRouting();
 
-        app.MapStaticAssets();
-        app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-            .WithStaticAssets();
+        //app.UseAuthorization();
 
-        app.Run();
+        //app.MapStaticAssets();
+        //app.MapControllerRoute(
+        //        name: "default",
+        //        pattern: "{controller=Home}/{action=Index}/{id?}")
+        //    .WithStaticAssets();
+
+        //app.Run();
     }
 }
