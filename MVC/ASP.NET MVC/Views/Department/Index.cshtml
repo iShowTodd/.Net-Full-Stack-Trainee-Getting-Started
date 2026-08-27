@@ -1,5 +1,80 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Department>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Departments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Departments</h2>
+
+    <a class="add-btn" href="@Url.Action("Create", "Department")">+ Add Department</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Department Name</th>
+                <th>Manager Name</th>
+                <th>Employee Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dept in Model)
+            {
+                <tr>
+                    <td>@dept.Id</td>
+                    <td>@dept.Name</td>
+                    <td>@dept.ManagerName</td>
+                    <td>@(dept.Employees?.Count ?? 0)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,5 +1,6 @@
 ﻿using ASP.NET_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_MVC.Controllers
 {
@@ -9,7 +10,7 @@ namespace ASP.NET_MVC.Controllers
 
         public IActionResult Index()
         {
-            var depts = _db.Departments.ToList();
+            var depts = _db.Departments.Include(e => e.Employees).ToList();
             //return View("Index", depts);  // View = Index , Model = depts
             return View(depts); // View = Index , Model = depts
             //return View(); // View = Index , Model = null
