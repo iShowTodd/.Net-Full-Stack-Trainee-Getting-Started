@@ -7,9 +7,9 @@ namespace ASP.NET_MVC.Controllers
     {
         public ProjectContext ProjectContext = new ProjectContext();
 
-        public IActionResult TestViewData()
+        public IActionResult TestViewData(int id)
         {
-            Employee empModel = ProjectContext.Employees.FirstOrDefault();
+            Employee empModel = ProjectContext.Employees.FirstOrDefault(e => e.Id == id);
             // Extra info to send
             string msg = "Hello";
             List<string> branchs = new List<string>();
