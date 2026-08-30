@@ -4,6 +4,22 @@ namespace ASP.NET_MVC.Controllers
 {
     public class StateManagementController : Controller
     {
+        public IActionResult SetCookie()
+        {
+            CookieOptions cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTimeOffset.Now.AddHours(1);
+            Response.Cookies.Append("Name", "Ahmed");
+            Response.Cookies.Append("Age", "21");
+            return Content("Cookie Saved");
+        }
+
+        public IActionResult GetCookie()
+        {
+            string name = Request.Cookies["Name"];
+            int age = int.Parse(Request.Cookies["Age"]);
+            return Content($" {name} {age}");
+        }
+
         public IActionResult SetSession()
         {
             HttpContext.Session.SetString("NAME", "Ahmed");
