@@ -19,6 +19,9 @@ namespace ASP.NET_MVC.Controllers
             ViewData["Temp"] = 44;
             ViewData["Color"] = "Red";
 
+            //ViewData["Color"] = "Blue"; // intro to the override of ViewData
+            //ViewBag.Color = "Blue"; // Do the same override to the Color prop
+
             return View(empModel);
         }
     }
