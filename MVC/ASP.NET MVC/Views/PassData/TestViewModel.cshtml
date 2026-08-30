@@ -1,0 +1,16 @@
+﻿@model ASP.NET_MVC.ViewModel.EmployeeWithMessageAndBranchViewModel
+
+<h1>Test View Model</h1>
+<div style="color: @Model.Color">
+    <p>@Model.Message</p>
+    @Model.EmpName
+    <br />
+    @Model.EmpId
+    <br />
+    <select class="form-control">
+        @foreach (var item in Model.Branches)
+        {
+            <option>@item</option>
+        }
+    </select>
+</div>

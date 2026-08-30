@@ -1,17 +1,24 @@
-﻿@model Employee
+﻿@model ASP.NET_MVC.Models.Employee
 
 <h1>testViewData</h1>
-<h2 style="background-color : @ViewData["CoLor"]">@Model.Name</h2>
-
-<!--View Data-->
+<h2 style="background-color: @(ViewData["Color"]?.ToString() ?? "transparent")">@Model.Name</h2>
 
 <h3>Message : @ViewData["Message"]</h3>
-<select class="form-control">
 
-    @foreach (var item in (List<string>)ViewData["brch"])
+<select class="form-control">
+    @foreach (var item in (ViewData["brch"] as List<string>) ?? new List<string>())
     {
-        <li>@item</li>
+        <option>@item</option>
     }
 </select>
 
-@((int)ViewData["Temp"] + 10)
+<select class="form-control">
+    @foreach (var item in (ViewBag.brch as List<string>) ?? new List<string>())
+    {
+        <option>@item</option>
+    }
+</select>
+
+<p>@((int)ViewData["Temp"] + 10)</p>
+
+<p>@ViewBag.Temp</p>
