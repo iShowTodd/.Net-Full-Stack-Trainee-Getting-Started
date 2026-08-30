@@ -1,4 +1,5 @@
 ﻿using ASP.NET_MVC.Models;
+using ASP.NET_MVC.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NET_MVC.Controllers
@@ -21,8 +22,29 @@ namespace ASP.NET_MVC.Controllers
 
             //ViewData["Color"] = "Blue"; // intro to the override of ViewData
             //ViewBag.Color = "Blue"; // Do the same override to the Color prop
+            // ViewModel : Customize class Dta that is needed to be sent to the View
+            // (Extra info, Merge between 2 Models, filter the Model Properities  )
 
             return View(empModel);
+        }
+
+        public IActionResult TestViewModel(int id)
+        {
+            Employee? empModel = ProjectContext.Employees.FirstOrDefault();
+
+            if (empModel == null)
+                return NotFound();
+            ViewData["Message"] = "Hello";
+            ViewData["brch"] = new List<string> { "Alex", "Smart", "Sohag", "Assuit", "Minia" };
+            ViewData["Temp"] = 44;
+            ViewData["Color"] = "Red";
+
+            EmployeeWithMessageAndBranchViewModel empViewModel = new EmployeeWithMessageAndBranchViewModel();
+            empViewModel.Message = "Hello";
+            empViewModel.Temp = 44;
+            empViewModel.Color = "red";
+
+            return View(empViewModel);
         }
     }
 }
