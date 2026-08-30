@@ -10,4 +10,13 @@
     }
 </select>
 
+<select class="form-control">
+    @foreach (var item in ViewBag.brch)
+    {
+        <option>@item</option>
+    }
+</select>
+
 <p>@((int)ViewData["Temp"] + 10)</p>
+
+<p>@ViewBag.temp</p>

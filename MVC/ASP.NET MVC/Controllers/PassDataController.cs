@@ -7,9 +7,9 @@ namespace ASP.NET_MVC.Controllers
     {
         public ProjectContext ProjectContext = new ProjectContext();
 
-        public IActionResult TestViewData(int id)
+        public IActionResult TestViewData()
         {
-            Employee? empModel = ProjectContext.Employees.FirstOrDefault(e => e.Id == id);
+            Employee? empModel = ProjectContext.Employees.FirstOrDefault();
 
             if (empModel == null)
                 return NotFound();
