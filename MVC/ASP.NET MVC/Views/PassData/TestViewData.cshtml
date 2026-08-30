@@ -4,7 +4,8 @@
 <h2 style="background-color: @(ViewData["Color"]?.ToString() ?? "transparent")">@Model.Name</h2>
 
 <h3>Message : @ViewData["Message"]</h3>
-
+@* @Context.Session.GetString("Ahmed");
+ *@
 <select class="form-control">
     @foreach (var item in (ViewData["brch"] as List<string>) ?? new List<string>())
     {

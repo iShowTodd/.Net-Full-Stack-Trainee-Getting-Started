@@ -7,7 +7,15 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        //builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromSeconds(10);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
 
         var app = builder.Build();
 
@@ -45,6 +53,7 @@ public class Program
         app.UseRouting();
 
         app.UseAuthorization();
+        app.UseSession();
 
         app.MapStaticAssets(); // Alt : for UseStaticFiles
         app.MapControllerRoute(
