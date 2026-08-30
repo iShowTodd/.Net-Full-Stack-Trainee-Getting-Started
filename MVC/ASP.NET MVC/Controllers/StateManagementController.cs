@@ -23,7 +23,8 @@ namespace ASP.NET_MVC.Controllers
 
         public IActionResult GetTwo()
         {
-            string? message = TempData["msg"].ToString();
+            string? message = TempData["msg"].ToString(); // normal read
+            TempData.Keep("msg"); // After the request do not delete this key
             return Content("get2" + message);
         }
     }
