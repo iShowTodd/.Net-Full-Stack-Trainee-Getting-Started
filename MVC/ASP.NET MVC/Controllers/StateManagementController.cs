@@ -15,7 +15,8 @@ namespace ASP.NET_MVC.Controllers
             string message = "Empty Message";
             if (TempData.ContainsKey("msg"))
             {
-                message = TempData["msg"].ToString();
+                //message = TempData["msg"].ToString(); // Normal Read
+                message = TempData.Peek("msg").ToString(); // Means in term of cookies "Give it another Chance"
             }
             return Content("get1" + message);
         }
