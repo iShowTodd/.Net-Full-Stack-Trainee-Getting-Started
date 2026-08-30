@@ -4,6 +4,20 @@ namespace ASP.NET_MVC.Controllers
 {
     public class StateManagementController : Controller
     {
+        public IActionResult SetSession()
+        {
+            HttpContext.Session.SetString("NAME", "Ahmed");
+            HttpContext.Session.SetInt32("AGE", 21);
+            return Content("Session Data Saved");
+        }
+
+        public IActionResult GetSessionData()
+        {
+            string name = HttpContext.Session.GetString("NAME");
+            int? age = HttpContext.Session.GetInt32("AGE");
+            return Content($"{name} {age}");
+        }
+
         public IActionResult SetTempData()
         {
             TempData["msg"] = "Hello"; // Just One Request then it get destroied
