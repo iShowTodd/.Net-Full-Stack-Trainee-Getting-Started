@@ -3,7 +3,7 @@
     public class EmployeeWithMessageAndBranchViewModel
     {
         public string Message { get; set; }
-        public List<string> Branches { get; set; }
+        public List<string> Branches { get; set; } = new List<string>();
         public int Temp { get; set; }
         public string Color { get; set; }
         public string EmpName { get; set; }

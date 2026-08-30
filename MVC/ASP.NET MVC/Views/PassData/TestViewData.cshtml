@@ -1,4 +1,6 @@
-﻿<h1>testViewData</h1>
+﻿@model ASP.NET_MVC.Models.Employee
+
+<h1>testViewData</h1>
 <h2 style="background-color: @(ViewData["Color"]?.ToString() ?? "transparent")">@Model.Name</h2>
 
 <h3>Message : @ViewData["Message"]</h3>
@@ -11,7 +13,7 @@
 </select>
 
 <select class="form-control">
-    @foreach (var item in ViewBag.brch)
+    @foreach (var item in (ViewBag.brch as List<string>) ?? new List<string>())
     {
         <option>@item</option>
     }
@@ -19,4 +21,4 @@
 
 <p>@((int)ViewData["Temp"] + 10)</p>
 
-<p>@ViewBag.temp</p>
+<p>@ViewBag.Temp</p>

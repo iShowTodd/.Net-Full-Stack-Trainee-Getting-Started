@@ -20,11 +20,6 @@ namespace ASP.NET_MVC.Controllers
             ViewData["Temp"] = 44;
             ViewData["Color"] = "Red";
 
-            //ViewData["Color"] = "Blue"; // intro to the override of ViewData
-            //ViewBag.Color = "Blue"; // Do the same override to the Color prop
-            // ViewModel : Customize class Dta that is needed to be sent to the View
-            // (Extra info, Merge between 2 Models, filter the Model Properities  )
-
             return View(empModel);
         }
 
@@ -34,15 +29,16 @@ namespace ASP.NET_MVC.Controllers
 
             if (empModel == null)
                 return NotFound();
-            ViewData["Message"] = "Hello";
-            ViewData["brch"] = new List<string> { "Alex", "Smart", "Sohag", "Assuit", "Minia" };
-            ViewData["Temp"] = 44;
-            ViewData["Color"] = "Red";
 
-            EmployeeWithMessageAndBranchViewModel empViewModel = new EmployeeWithMessageAndBranchViewModel();
-            empViewModel.Message = "Hello";
-            empViewModel.Temp = 44;
-            empViewModel.Color = "red";
+            EmployeeWithMessageAndBranchViewModel empViewModel = new EmployeeWithMessageAndBranchViewModel
+            {
+                EmpId = empModel.Id,
+                EmpName = empModel.Name,
+                Message = "Hello",
+                Temp = 44,
+                Color = "red",
+                Branches = new List<string> { "Alex", "Smart", "Sohag", "Assuit", "Minia" }
+            };
 
             return View(empViewModel);
         }
