@@ -12,7 +12,11 @@ namespace ASP.NET_MVC.Controllers
 
         public IActionResult GetOne()
         {
-            string? message = TempData["msg"].ToString();
+            string message = "Empty Message";
+            if (TempData.ContainsKey("msg"))
+            {
+                message = TempData["msg"].ToString();
+            }
             return Content("get1" + message);
         }
 
