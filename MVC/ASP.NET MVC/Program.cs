@@ -19,16 +19,16 @@ public class Program
             Run → Execute and Terminate
          */
 
-        app.Use(async (HttpContext, next) =>
-        {
-            await HttpContext.Response.WriteAsync("1) Write Custom Middleware");
-            await next.Invoke();
-        });
-        // No Next as it terminates
-        app.Run(async (HttpContext) =>
-        {
-            await HttpContext.Response.WriteAsync("2) Write and Terminate Custom Middleware");
-        });
+        //app.Use(async (HttpContext, next) =>
+        //{
+        //    await HttpContext.Response.WriteAsync("1) Write Custom Middleware");
+        //    await next.Invoke();
+        //});
+        //// No Next as it terminates
+        //app.Run(async (HttpContext) =>
+        //{
+        //    await HttpContext.Response.WriteAsync("2) Write and Terminate Custom Middleware");
+        //});
 
         // Built-In Middlewares
 

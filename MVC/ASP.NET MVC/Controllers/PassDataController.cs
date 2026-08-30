@@ -9,22 +9,15 @@ namespace ASP.NET_MVC.Controllers
 
         public IActionResult TestViewData(int id)
         {
-            Employee empModel = ProjectContext.Employees.FirstOrDefault(e => e.Id == id);
-            // Extra info to send
-            string msg = "Hello";
-            List<string> branchs = new List<string>();
-            branchs.Add("Alex");
-            branchs.Add("Smart");
-            branchs.Add("Sohag");
-            branchs.Add("Assuit");
-            branchs.Add("Minia");
-            int temp = 44;
-            string color = "Red";
+            Employee? empModel = ProjectContext.Employees.FirstOrDefault(e => e.Id == id);
 
-            ViewData["Message"] = msg;
-            ViewData["brch"] = branchs;
-            ViewData["Temp"] = temp;
-            ViewData["Color"] = color;
+            if (empModel == null)
+                return NotFound();
+
+            ViewData["Message"] = "Hello";
+            ViewData["brch"] = new List<string> { "Alex", "Smart", "Sohag", "Assuit", "Minia" };
+            ViewData["Temp"] = 44;
+            ViewData["Color"] = "Red";
 
             return View(empModel);
         }
